@@ -1,0 +1,100 @@
+########################## hero area ##########################
+hero:
+  title: "Tactical Advantage"
+  subtitle: "Algorithmic trading, Investing & Finance"
+
+  bg_image: "images/d3.jpg"
+  mobile_bg_image: "images/m1.jpg"
+
+########################### About ##################################
+about:
+  enable: true
+  title: "About"
+  content: |-
+    We are a prop trading firm and a hedge fund, currently focusing on Bitcoin derivative markets.\
+    We use AI/ML methods mixed with classic financial engineering to control risks and deliver competitive returns.
+  links:
+    - label: "Email"
+      value: "contact@tactical-advantage.trading"
+      href: "mailto:contact@tactical-advantage.trading"
+    - label: "Bluesky"
+      value: "@tactical-advantage.trading"
+      href: "https://bsky.app/profile/tactical-advantage.trading"
+    - label: "GitHub"
+      value: "github.com/Tactical-Advantage-Trading"
+      href: "https://github.com/Tactical-Advantage-Trading/"
+
+########################### Vision ##################################
+vision:
+  enable: true
+  title: "Vision"
+  quotes:
+    - text: |-
+        Risk only turns into loss occasionally when the tide goes out, but the prudent investor and hopefully his or her clients knows that risk is being controlled even at times when it doesn't come to the surface. 
+
+        So I think that risk is something to be managed and controlled but not avoided. Risk is indispensable, risk avoidance is not an appropriate goal in investing. I think and my experience tells me from watching others that risk avoidance equates to return avoidance.
+      source: "How to Think About Risk"
+      authors: "Howard Marks"
+    - text: |-
+        Here is a good candidate for a function of consciousness: Our conscious experience of the world typically involves objects and actions, rather than isolated sensations and movements and it is plausible that consciousness is necessary for integrating information (Tononi, 2008), and for broadcasting information between different processing modules (Baars, 1988; Dehaene and Naccache, 2001). 
+        
+        However, we are doubtful. There is increasing evidence that sensory integration happens even at the earliest stages of sensory processing (e.g. Lemus et al., 2010; Watkins et al., 2007) and even high-level, cross-modal integration of symbols can occur without awareness (Faivre et al., 2014). For many activities there is clear need for 'global availability' of information. But why should this global access be associated with subjective experience? 
+        
+        Furthermore, decisions, which require the integration of many sources of information, seem to be better made in the absence of conscious reflection (Dijksterhuis and Nordgren, 2006), perhaps because appropriate weighting of multiple sources of information is disrupted by conscious deliberation (Engel and Singer, 2008; Levine et al., 1996). A similar phenomenon can be observed in the performance of highly skilled acts (Beilock et al., 2002).
+      source: "What's the use of consciousness?"
+      authors: "Chris D Frith & Thomas Metzinger"
+    - text: |-
+        Mining gold or silver was a relatively straightforward endeavor during the 16th and 17th centuries. In less than a hundred years, the Spanish treasure fleet quadrupled the amount of precious metals in circulation throughout Europe. Those times are long gone, and today prospectors must deploy complex industrial methods to extract microscopic bullion particles out of tons of earth. That does not mean that gold production is at historical lows. On the contrary, nowadays miners extract 2,500 metric tons of microscopic gold every year, compared to the average annual 1.54 metric tons taken by the Spanish conquistadors throughout the entire 16th century! Visible gold is an infinitesimal portion of the overall amount of gold on Earth. El Dorado was always there... if only Pizarro could have exchanged the sword for a microscope.
+
+        The discovery of investment strategies has undergone a similar evolution. If a decade ago it was relatively common for an individual to discover macroscopic alpha (i.e., using simple mathematical tools like econometrics), currently the chances of that happening are quickly converging to zero. Individuals searching nowadays for macroscopic alpha, regardless of their experience or knowledge, are fighting overwhelming odds. The only true alpha left is microscopic, and finding it requires capital-intensive industrial methods. Just like with gold, microscopic alpha does not mean smaller overall profits. Microscopic alpha today is much more abundant than macroscopic alpha has ever been in history. There is a lot of money to be made, but you will need to use heavy ML tools.
+      source: "Advances in Financial Machine Learning"
+      authors: "Marcos Lopez de Prado"
+
+############################# Key Wallet ################################
+key_wallet:
+  enable: true
+  title: "Key Wallet"
+  intro: |-
+    Key Wallet is our open-source, non-custodial, autonomous Bitcoin wallet for Android and also an account control tool for our clients. Besides basic wallet functions there are many advanced features such as Message Signing, Multiwallets, Transaction Bumping/Canceling, and more.
+  links:
+    - label: "Get the app"
+      value: "github.com/Tactical-Advantage-Trading/wallet/releases"
+      href: "https://github.com/Tactical-Advantage-Trading/wallet/releases"
+  install_note:
+    title: "Get the app"
+    content: |-
+      The recommended way, especially if you're going to manage substantial amounts of money, is to install the app directly from a GitHub APK file.
+
+      By installing it this way you make sure that the wallet will never be updated automatically and thus exclude the possibility of a malicious automatic update, whether it comes from an attacker who got access to developer accounts or even from the developer himself.
+  sections:
+    - title: "Installing a wallet"
+      content: |-
+        Once the app is opened for the first time a new Bitcoin wallet gets generated randomly, and that wallet is not tied to your device in any way. This is important because simply reinstalling the app and generating another wallet will not restore your previous balance: you will get a completely new wallet with zero balance instead.
+
+        There is, however, a reliable way to preserve your balance across app reinstalls and even across multiple devices: **you need to write down a recovery phrase once a new wallet is created**.
+    - title: "Recovery phrase"
+      content: |-
+        It is a secret phrase comprising 12 random words which is provided to you by the app once a new Bitcoin wallet is created. The recovery phrase alone is sufficient to restore your Bitcoin wallet balance, so whoever knows it also fully controls your funds.
+
+        In a nutshell: **only the recovery phrase can restore your balance back in case you lose your phone or simply uninstall the app by accident**. Make sure to write it down and then keep it in a secure place.
+    - title: "RBF and CPFP"
+      content: |-
+        RBF and CPFP allow you to speed up pending transaction confirmation time by increasing its fee. CPFP can be applied to incoming transactions while RBF is used with outgoing transactions.
+
+        Additionally, RBF allows you to cancel a pending outgoing transaction and get its value back to the wallet, minus fees. Expand a pending transaction in Key Wallet to see which fee bumping options are available.
+    - title: "Transaction batching"
+      content: |-
+        It is possible to compose a single Bitcoin transaction which spends funds to many addresses at once. Doing so will greatly reduce chain fees. This feature is activated by sharing a list of `<address> <amount>;` pairs with the app. The list to be shared should look like this:
+      example: |-
+        bc1q053q30qhmxwh256z7s6203dlpvzx0nwxsujs5l 11,000,000;
+
+        3BtbpxM4RPq9reMChx1EhTPKgbcMefRZ71 550,000;
+
+        3HoEwvrqYRnrizFN7gTg5ouSbV3Tek9pab 0.00491500
+      after_example: |-
+        Amounts can either be provided as Satoshis separated by comma or as Bitcoins with decimal point.
+    - title: "Message signing"
+      content: |-
+        Key Wallet can sign and verify arbitrary messages according to [BIP322](https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki).
+
+        To sign or verify a message you need to scan a QR code containing a [BIP322Share](https://github.com/Tactical-Advantage-Trading/wallet/blob/master/app/BIP322Share.md) string. Key Wallet generates such strings automatically once a message is signed so you can easily share them with others.
