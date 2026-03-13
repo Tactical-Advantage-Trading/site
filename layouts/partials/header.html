@@ -1,0 +1,42 @@
+{{ $hero := .Site.Data.content.hero }} {{ with .Params.hero }} {{ $hero = merge
+$hero . }} {{ end }}
+<section class="header" id="header">
+  {{ if .Site.Params.enable_logo }}
+  <div class="logo">
+    <img
+      class="img-fluid"
+      src="{{ .Site.Params.logo_light | relURL }}"
+      alt="{{ .Site.Title }}"
+    />
+  </div>
+  {{ end }} {{ with $hero }}
+  <div class="hero-image">
+    {{ if ne .mobile_bg_image "" }}
+    <img
+      class="d-none d-md-block"
+      src="{{ .bg_image | relURL }}"
+      alt="background"
+    /><img
+      class="d-md-none"
+      src="{{ .mobile_bg_image | relURL }}"
+      alt="background"
+    />{{ else }} <img src="{{ .bg_image | relURL }}" alt="background" />{{ end
+    }}
+  </div>
+  <div class="container">
+    <div class="row justify-content-center content">
+      <div class="col-lg-8 col-sm-8 head-container">
+        <div class="head-holder">
+          <h1 class="introduction">{{ .title | markdownify | emojify }}</h1>
+          {{ with .subtitle }}
+          <p class="hero-subtitle">{{ . | markdownify | emojify }}</p>
+          {{ end }}
+          {{ if .button.enable }} {{ with .button }}
+          <a class="hireMe button" href="{{ .link }}">{{ .label }}</a>
+          {{ end }} {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</section>

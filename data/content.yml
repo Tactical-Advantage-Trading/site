@@ -53,21 +53,19 @@ vision:
 ############################# Key Wallet ################################
 key_wallet:
   enable: true
-  title: "Key Wallet"
+  title: "10+ years in the making"
   intro: |-
-    Key Wallet is our open-source, non-custodial, autonomous Bitcoin wallet for Android and also an account control tool for our clients. Besides basic wallet functions there are many advanced features such as Message Signing, Multiwallets, Transaction Bumping/Canceling, and more.
+    Key Wallet is our open-source, non-custodial, autonomous Bitcoin wallet for Android, as well as an account control tool for our clients.
+    It is one of the oldest mobile wallets still available today. Previously known as Simple Bitcoin Wallet, it has been around since 2016 and is not going anywhere.
   links:
     - label: "Get the app"
       value: "github.com/Tactical-Advantage-Trading/wallet/releases"
       href: "https://github.com/Tactical-Advantage-Trading/wallet/releases"
   install_note:
-    title: "Get the app"
     content: |-
-      The recommended way, especially if you're going to manage substantial amounts of money, is to install the app directly from a GitHub APK file.
-
-      By installing it this way you make sure that the wallet will never be updated automatically and thus exclude the possibility of a malicious automatic update, whether it comes from an attacker who got access to developer accounts or even from the developer himself.
+      The recommended way to install it on your phone, especially if you're going to manage substantial amounts of money, is to download the app directly from a GitHub APK file.
   sections:
-    - title: "Installing a wallet"
+    - title: "Wallet setup"
       content: |-
         Once the app is opened for the first time a new Bitcoin wallet gets generated randomly, and that wallet is not tied to your device in any way. This is important because simply reinstalling the app and generating another wallet will not restore your previous balance: you will get a completely new wallet with zero balance instead.
 

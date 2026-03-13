@@ -1,0 +1,22 @@
+<section class="menu menu-fix" id="menu">
+  <nav>
+    <div class="menu-container">
+      <ul class="desktop-menu list-inline mb-0" id="desktop-menu">
+        {{ if .Params.menu_back_to_home }}
+        <li class="menu-item hvr-underline-from-left">
+          <a href="/">&lsaquo; Tactical Advantage</a>
+        </li>
+        {{ else }} {{ $isHome := .IsHome }} {{ range .Site.Menus.main }} {{
+        $url := .URL }} {{ if and (not $isHome) (hasPrefix $url "#") }} {{ $url
+        = printf "/%s" $url }} {{ end }}
+        <li class="menu-item hvr-underline-from-left {{ .Weight }}">
+          <a href="{{ $url }}"
+            >{{ .Name }}{{ if eq .URL "/key-wallet" }} &rsaquo;{{ end }}</a
+          >
+        </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  </nav>
+</section>

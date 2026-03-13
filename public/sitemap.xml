@@ -2,10 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://tactical-advanage.trading/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://tactical-advanage.trading/key-wallet/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://tactical-advanage.trading/</loc>
+  </url><url>
+    <loc>https://tactical-advanage.trading/tags/</loc>
   </url>
 </urlset>

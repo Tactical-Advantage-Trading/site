@@ -1,0 +1,61 @@
+{{ if .Site.Data.content.key_wallet.enable }} {{ with .Site.Data.content.key_wallet
+}}
+<section class="about-me key-wallet-section" id="key-wallet">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 col-12 about-me-text text-left">
+        <div class="text-holder key-wallet-shell">
+          <h1>{{ .title | safeHTML }}</h1>
+          {{ with .intro }}
+          <div class="key-wallet-intro">{{ . | markdownify | emojify }}</div>
+          {{ end }}
+          {{ with .links }}
+          <div class="about-links key-wallet-links">
+            {{ range . }}
+            <div class="about-link">
+              <span class="about-link-label">{{ .label }}</span>
+              <a
+                class="about-link-value"
+                href="{{ .href }}"
+                {{ if hasPrefix .href "http" }}target="_blank" rel="noreferrer"{{ end }}
+              >
+                {{ .value }}
+              </a>
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ with .install_note }}
+          <section class="key-wallet-note">
+            <h2>{{ .title }}</h2>
+            <div class="key-wallet-note-copy">
+              {{ .content | markdownify | emojify }}
+            </div>
+          </section>
+          {{ end }}
+          {{ with .sections }}
+          <div class="key-wallet-manual">
+            {{ range . }}
+            <article class="key-wallet-item">
+              <h3>{{ .title }}</h3>
+              <div class="key-wallet-item-copy">
+                {{ .content | markdownify | emojify }}
+              </div>
+              {{ with .example }}
+              <pre class="key-wallet-example"><code>{{ . }}</code></pre>
+              {{ end }}
+              {{ with .after_example }}
+              <div class="key-wallet-item-copy">
+                {{ . | markdownify | emojify }}
+              </div>
+              {{ end }}
+            </article>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }} {{ end }}

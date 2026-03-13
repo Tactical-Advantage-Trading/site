@@ -1,0 +1,60 @@
+{{ define "main" }} {{- partial "menu.html" . -}} {{- partial "header.html" . -}}
+
+{{ if .Site.Data.content.about.enable }} {{ with .Site.Data.content.about }}
+<section class="about-me" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 col-11 about-me-text text-left">
+        <div class="text-holder">
+          <h1>{{ .title | safeHTML }}</h1>
+          <p>{{ .content | markdownify | emojify }}</p>
+          {{ with .links }}
+          <div class="about-links">
+            {{ range . }}
+            <div class="about-link">
+              <span class="about-link-label">{{ .label }}</span>
+              <a
+                class="about-link-value"
+                href="{{ .href }}"
+                {{ if hasPrefix .href "http" }}target="_blank" rel="noreferrer"{{ end }}
+              >
+                {{ .value }}
+              </a>
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }} {{ end }}
+
+{{ if .Site.Data.content.vision.enable }} {{ with .Site.Data.content.vision }}
+<section class="about-me vision-section" id="vision">
+  <div class="container">
+    <div class="vision-section-head about-me-text text-left">
+      <h1>{{ .title | safeHTML }}</h1>
+      {{ with .content }}
+      <div class="vision-intro">{{ . | markdownify | emojify }}</div>
+      {{ end }}
+    </div>
+    {{ with .quotes }}
+    <div class="vision-cards">
+      {{ range . }}
+      <article class="vision-card">
+        <div class="vision-card-copy">{{ .text | markdownify | emojify }}</div>
+        <footer class="vision-card-footer">
+          <span class="vision-card-source">{{ .source }}</span>
+          <span class="vision-card-author">{{ .authors }}</span>
+        </footer>
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }} {{ end }}
+
+{{- partial "footer.html" . -}} {{ end }}

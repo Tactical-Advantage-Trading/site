@@ -22,8 +22,6 @@
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css" />
   
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&amp;display=swap" />
-  
 
   <!-- Main Stylesheet -->
 
@@ -41,23 +39,31 @@
   <nav>
     <div class="menu-container">
       <ul class="desktop-menu list-inline mb-0" id="desktop-menu">
-        
+            
         <li class="menu-item hvr-underline-from-left 1">
-          <a href="#about">About</a>
+          <a href="#about"
+            >About</a
+          >
         </li>
-        
+          
         <li class="menu-item hvr-underline-from-left 2">
-          <a href="#vision">Vision</a>
+          <a href="#vision"
+            >Vision</a
+          >
+        </li>
+          
+        <li class="menu-item hvr-underline-from-left 3">
+          <a href="/key-wallet"
+            >Key Wallet &rsaquo;</a
+          >
         </li>
         
-        <li class="menu-item hvr-underline-from-left 3">
-          <a href="#key-wallet">Key Wallet</a>
-        </li>
         
       </ul>
     </div>
   </nav>
 </section>
+ 
 <section class="header" id="header">
    
   <div class="hero-image">
@@ -74,9 +80,7 @@
   </div>
   <div class="container">
     <div class="row justify-content-center content">
-      <div
-        class="col-lg-8 col-sm-8 head-container"
-      >
+      <div class="col-lg-8 col-sm-8 head-container">
         <div class="head-holder">
           <h1 class="introduction">Tactical Advantage</h1>
           
@@ -186,117 +190,6 @@ We use AI/ML methods mixed with classic financial engineering to control risks a
       
     </div>
     
-  </div>
-</section>
- 
-
- 
-<section class="about-me key-wallet-section" id="key-wallet">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 col-12 about-me-text text-left">
-        <div class="text-holder key-wallet-shell">
-          <h1>Key Wallet</h1>
-          
-          <div class="key-wallet-intro">Key Wallet is our open-source, non-custodial, autonomous Bitcoin wallet for Android and also an account control tool for our clients. Besides basic wallet functions there are many advanced features such as Message Signing, Multiwallets, Transaction Bumping/Canceling, and more.</div>
-          
-          
-          <div class="about-links key-wallet-links">
-            
-            <div class="about-link">
-              <span class="about-link-label">Get the app</span>
-              <a
-                class="about-link-value"
-                href="https://github.com/Tactical-Advantage-Trading/wallet/releases"
-                target="_blank" rel="noreferrer"
-              >
-                github.com/Tactical-Advantage-Trading/wallet/releases
-              </a>
-            </div>
-            
-          </div>
-          
-          
-          <section class="key-wallet-note">
-            <h2>Get the app</h2>
-            <div class="key-wallet-note-copy">
-              <p>The recommended way, especially if you&rsquo;re going to manage substantial amounts of money, is to install the app directly from a GitHub APK file.</p>
-<p>By installing it this way you make sure that the wallet will never be updated automatically and thus exclude the possibility of a malicious automatic update, whether it comes from an attacker who got access to developer accounts or even from the developer himself.</p>
-
-            </div>
-          </section>
-          
-          
-          <div class="key-wallet-manual">
-            
-            <article class="key-wallet-item">
-              <h3>Installing a wallet</h3>
-              <div class="key-wallet-item-copy">
-                <p>Once the app is opened for the first time a new Bitcoin wallet gets generated randomly, and that wallet is not tied to your device in any way. This is important because simply reinstalling the app and generating another wallet will not restore your previous balance: you will get a completely new wallet with zero balance instead.</p>
-<p>There is, however, a reliable way to preserve your balance across app reinstalls and even across multiple devices: <strong>you need to write down a recovery phrase once a new wallet is created</strong>.</p>
-
-              </div>
-              
-              
-            </article>
-            
-            <article class="key-wallet-item">
-              <h3>Recovery phrase</h3>
-              <div class="key-wallet-item-copy">
-                <p>It is a secret phrase comprising 12 random words which is provided to you by the app once a new Bitcoin wallet is created. The recovery phrase alone is sufficient to restore your Bitcoin wallet balance, so whoever knows it also fully controls your funds.</p>
-<p>In a nutshell: <strong>only the recovery phrase can restore your balance back in case you lose your phone or simply uninstall the app by accident</strong>. Make sure to write it down and then keep it in a secure place.</p>
-
-              </div>
-              
-              
-            </article>
-            
-            <article class="key-wallet-item">
-              <h3>RBF and CPFP</h3>
-              <div class="key-wallet-item-copy">
-                <p>RBF and CPFP allow you to speed up pending transaction confirmation time by increasing its fee. CPFP can be applied to incoming transactions while RBF is used with outgoing transactions.</p>
-<p>Additionally, RBF allows you to cancel a pending outgoing transaction and get its value back to the wallet, minus fees. Expand a pending transaction in Key Wallet to see which fee bumping options are available.</p>
-
-              </div>
-              
-              
-            </article>
-            
-            <article class="key-wallet-item">
-              <h3>Transaction batching</h3>
-              <div class="key-wallet-item-copy">
-                It is possible to compose a single Bitcoin transaction which spends funds to many addresses at once. Doing so will greatly reduce chain fees. This feature is activated by sharing a list of <code>&lt;address&gt; &lt;amount&gt;;</code> pairs with the app. The list to be shared should look like this:
-              </div>
-              
-              <pre class="key-wallet-example"><code>bc1q053q30qhmxwh256z7s6203dlpvzx0nwxsujs5l 11,000,000;
-
-3BtbpxM4RPq9reMChx1EhTPKgbcMefRZ71 550,000;
-
-3HoEwvrqYRnrizFN7gTg5ouSbV3Tek9pab 0.00491500</code></pre>
-              
-              
-              <div class="key-wallet-item-copy">
-                Amounts can either be provided as Satoshis separated by comma or as Bitcoins with decimal point.
-              </div>
-              
-            </article>
-            
-            <article class="key-wallet-item">
-              <h3>Message signing</h3>
-              <div class="key-wallet-item-copy">
-                <p>Key Wallet can sign and verify arbitrary messages according to <a href="https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki">BIP322</a>.</p>
-<p>To sign or verify a message you need to scan a QR code containing a <a href="https://github.com/Tactical-Advantage-Trading/wallet/blob/master/app/BIP322Share.md">BIP322Share</a> string. Key Wallet generates such strings automatically once a message is signed so you can easily share them with others.</p>
-
-              </div>
-              
-              
-            </article>
-            
-          </div>
-          
-        </div>
-      </div>
-    </div>
   </div>
 </section>
  <div class="footer container text-center" id="contact">
