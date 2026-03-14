@@ -11,7 +11,7 @@ about:
   enable: true
   title: "About"
   content: |-
-    We are a prop trading firm and a hedge fund, currently focusing on Bitcoin derivative markets.\
+    We are a prop trading firm and a hedge fund, currently focusing on Bitcoin derivative markets. 
     We use AI/ML methods mixed with classic financial engineering to control risks and deliver competitive returns.
   links:
     - label: "Email"

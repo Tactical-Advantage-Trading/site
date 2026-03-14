@@ -6,6 +6,11 @@ html {
   height: 100%;
 }
 
+:root {
+  --font-body: 'Public Sans', 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+}
+
 h1 {
   font-size: 2rem;
 }
@@ -15,10 +20,22 @@ h1 {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
   height: 100%;
   background: #000;
   color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
 }
 
 .no-js body {
@@ -181,7 +198,7 @@ body {
   height: 100%;
   color: white;
   font-size: 30px;
-  font-family: Helvetica, Arial, sans-serif !important;
+  font-family: var(--font-body) !important;
   font-weight: 300;
   z-index: 10;
 }
@@ -193,14 +210,17 @@ body {
 }
 
 .introduction {
-  font-size: 60px;
+  font-size: clamp(4.4rem, 3.3rem + 2.6vw, 5.9rem);
   font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: 0.015em;
 }
 
 .hero-subtitle {
-  font-size: 21px;
+  font-size: 24px;
   margin-top: 7px;
   margin-bottom: 2px;
+  line-height: 1.5;
 }
 
 .typist-blink:after {
@@ -218,8 +238,8 @@ body {
   margin-top: 18px;
   text-decoration: none;
   color: white;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 19px;
+  font-family: var(--font-body);
+  font-size: 20px;
   font-weight: 500;
   border: 2px solid white;
   padding: 5px 18px;
@@ -562,7 +582,9 @@ input:checked + label span:last-child {
 .menu-item a {
   text-decoration: none;
   color: #fff;
-  font-size: 17px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
   transition: color 1s;
 }
 
@@ -594,15 +616,17 @@ input:checked + label span:last-child {
 .about-me-text h1 {
   position: relative;
   color: #fff;
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: clamp(2.8rem, 2.15rem + 1.2vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  line-height: 1.08;
   margin-bottom: 26px;
 }
 
 .about-me-text p {
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 .about-links {
@@ -631,7 +655,7 @@ input:checked + label span:last-child {
 
 .about-link-value {
   color: #fff;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -653,7 +677,8 @@ input:checked + label span:last-child {
 
 .vision-intro {
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 .vision-intro p:last-child {
@@ -679,8 +704,8 @@ input:checked + label span:last-child {
 
 .vision-card-copy {
   color: #fff;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 .vision-card-copy p {
@@ -710,28 +735,47 @@ input:checked + label span:last-child {
 
 .vision-card-author {
   color: #fff;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .key-wallet-shell {
   max-width: 980px;
 }
 
+.key-wallet-section {
+  font-family: var(--font-body);
+}
+
 .key-wallet-layout {
   align-items: flex-start;
+}
+
+.key-wallet-section h1,
+.key-wallet-note h2,
+.key-wallet-item h3 {
+  font-family: var(--font-display);
+}
+
+.key-wallet-section h1 {
+  font-size: clamp(2.9rem, 2.2rem + 1.5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  font-weight: 600;
 }
 
 .key-wallet-intro,
 .key-wallet-note-copy,
 .key-wallet-item-copy {
   color: #fff;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 .key-wallet-intro {
   margin-bottom: 20px;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .key-wallet-intro p:last-child,
@@ -756,8 +800,10 @@ input:checked + label span:last-child {
 .key-wallet-item h3 {
   margin: 0 0 12px;
   color: #fff;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: clamp(1.7rem, 1.45rem + 0.55vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
 }
 
 .key-wallet-manual {
@@ -785,6 +831,7 @@ input:checked + label span:last-child {
   flex-direction: column;
   gap: 12px;
   padding: 16px;
+  border: 1px solid #3a3a3a;
   background: #000;
 }
 
@@ -799,7 +846,7 @@ input:checked + label span:last-child {
 
 .key-wallet-side-menu-label {
   color: #fff;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -823,8 +870,10 @@ input:checked + label span:last-child {
   display: inline-block;
   padding: 6px 0;
   color: #fff;
+  font-size: 17px;
+  font-weight: 500;
   text-decoration: none;
-  line-height: 1.4;
+  line-height: 1.55;
 }
 
 .key-wallet-intro a,
@@ -854,6 +903,7 @@ input:checked + label span:last-child {
   display: block;
   padding: 0;
   color: #fff;
+  font-size: 17px;
   background: transparent;
   border-radius: 0;
   white-space: pre-wrap;
