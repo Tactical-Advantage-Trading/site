@@ -80,20 +80,18 @@
   function initMenuTheme() {
     var $menu = $('.menu-container');
     var $hero = $('.header').first();
-    var $firstContentSection = $('.about-me').first();
 
     if (!$menu.length) {
       return;
     }
 
-    if (!$hero.length || !$firstContentSection.length) {
+    if (!$hero.length) {
       setMenuTheme(true);
       return;
     }
 
     function syncMenuTheme() {
-      var threshold = $firstContentSection.offset().top - $menu.outerHeight() - 1;
-      var useSolidTheme = $(window).scrollTop() >= threshold;
+      var useSolidTheme = $(window).scrollTop() > 0;
 
       setMenuTheme(useSolidTheme);
     }

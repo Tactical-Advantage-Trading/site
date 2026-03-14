@@ -583,6 +583,10 @@ input:checked + label span:last-child {
   scroll-margin-top: 73px;
 }
 
+.about-me:last-of-type {
+  padding-bottom: 24px;
+}
+
 .about-me + .about-me {
   padding-top: 18px;
 }
@@ -593,6 +597,7 @@ input:checked + label span:last-child {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 2px;
+  margin-bottom: 26px;
 }
 
 .about-me-text p {
@@ -640,6 +645,10 @@ input:checked + label span:last-child {
 
 .vision-section-head {
   margin-bottom: 26px;
+}
+
+.vision-section-head h1 {
+  margin-bottom: 0;
 }
 
 .vision-intro {
@@ -986,7 +995,7 @@ ul.experience-chart h4 {
 ----------------------------------*/
 .footer {
   background: #000;
-  padding-top: 28px;
+  padding-top: 14px;
   padding-bottom: 70px;
   position: relative;
   z-index: 2;
@@ -1323,6 +1332,9 @@ ul.experience-chart h4 {
   .about-me {
     padding: 40px 0px;
   }
+  .about-me:last-of-type {
+    padding-bottom: 20px;
+  }
   .about-me + .about-me {
     padding-top: 16px;
   }
@@ -1331,6 +1343,9 @@ ul.experience-chart h4 {
 @media (max-width: 600px) {
   .about-me {
     padding: 28px 0px;
+  }
+  .about-me:last-of-type {
+    padding-bottom: 16px;
   }
   .about-me + .about-me {
     padding-top: 12px;
