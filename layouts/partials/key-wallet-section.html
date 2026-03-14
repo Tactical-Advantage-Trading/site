@@ -2,8 +2,11 @@
 }}
 <section class="about-me key-wallet-section" id="key-wallet">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 col-12 about-me-text text-left">
+    {{ $sections := .sections }}
+    <div class="row key-wallet-layout justify-content-between">
+      <div
+        class="col-12 col-lg-8 col-xl-8 order-2 order-lg-1 about-me-text text-left"
+      >
         <div class="text-holder key-wallet-shell">
           <h1>{{ .title | safeHTML }}</h1>
           {{ with .intro }}
@@ -27,7 +30,9 @@
           {{ end }}
           {{ with .install_note }}
           <section class="key-wallet-note">
-            <h2>{{ .title }}</h2>
+            {{ with .title }}
+            <h2>{{ . }}</h2>
+            {{ end }}
             <div class="key-wallet-note-copy">
               {{ .content | markdownify | emojify }}
             </div>
@@ -36,7 +41,7 @@
           {{ with .sections }}
           <div class="key-wallet-manual">
             {{ range . }}
-            <article class="key-wallet-item">
+            <article class="key-wallet-item" id="{{ .title | anchorize }}">
               <h3>{{ .title }}</h3>
               <div class="key-wallet-item-copy">
                 {{ .content | markdownify | emojify }}
@@ -55,6 +60,20 @@
           {{ end }}
         </div>
       </div>
+      {{ with $sections }}
+      <aside class="col-12 col-lg-3 col-xl-3 order-1 order-lg-2 key-wallet-sidebar-wrap">
+        <nav class="key-wallet-side-menu" aria-label="Key Wallet section links">
+          <span class="key-wallet-side-menu-label">Contents</span>
+          <ul class="key-wallet-side-menu-list">
+            {{ range . }}
+            <li>
+              <a href="#{{ .title | anchorize }}">{{ .title }}</a>
+            </li>
+            {{ end }}
+          </ul>
+        </nav>
+      </aside>
+      {{ end }}
     </div>
   </div>
 </section>

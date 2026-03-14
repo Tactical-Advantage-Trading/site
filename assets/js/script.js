@@ -102,5 +102,69 @@
 
   initMenuTheme();
 
+  function initKeyWalletSideMenu() {
+    var $sidebarWrap = $('.key-wallet-sidebar-wrap');
+    var $sideMenu = $sidebarWrap.find('.key-wallet-side-menu');
+
+    if (!$sidebarWrap.length || !$sideMenu.length) {
+      return;
+    }
+
+    function syncKeyWalletSideMenu() {
+      var isDesktop = window.matchMedia('(min-width: 992px)').matches;
+      var menuHeight = $('.menu-container').outerHeight() || 55;
+      var topOffset = menuHeight + 19;
+
+      if (!isDesktop) {
+        $sidebarWrap.removeClass('key-wallet-sidebar-floating');
+        $sidebarWrap.css({
+          minHeight: ''
+        });
+        $sideMenu.css({
+          left: '',
+          top: '',
+          width: '',
+          maxHeight: ''
+        });
+        return;
+      }
+
+      var sidebarTop = $sidebarWrap.offset().top;
+      var sideMenuHeight = $sideMenu.outerHeight() || 0;
+      var shouldFloat = $(window).scrollTop() + topOffset >= sidebarTop;
+      var wrapPaddingLeft = parseFloat($sidebarWrap.css('padding-left')) || 0;
+      var sidebarLeft = $sidebarWrap.offset().left + wrapPaddingLeft;
+      var sidebarWidth = $sidebarWrap.width();
+
+      $sidebarWrap.css({
+        minHeight: sideMenuHeight
+      });
+
+      if (!shouldFloat) {
+        $sidebarWrap.removeClass('key-wallet-sidebar-floating');
+        return;
+      }
+
+      $sidebarWrap.addClass('key-wallet-sidebar-floating');
+      $sidebarWrap[0].style.setProperty(
+        '--key-wallet-side-menu-left',
+        sidebarLeft + 'px'
+      );
+      $sidebarWrap[0].style.setProperty(
+        '--key-wallet-side-menu-top',
+        topOffset + 'px'
+      );
+      $sidebarWrap[0].style.setProperty(
+        '--key-wallet-side-menu-width',
+        sidebarWidth + 'px'
+      );
+    }
+
+    $(window).on('load resize scroll', syncKeyWalletSideMenu);
+    syncKeyWalletSideMenu();
+  }
+
+  initKeyWalletSideMenu();
+
   $('#current-year').html(new Date().getFullYear());
 })(jQuery);

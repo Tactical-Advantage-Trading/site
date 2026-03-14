@@ -84,8 +84,11 @@
  
 <section class="about-me key-wallet-section" id="key-wallet">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 col-12 about-me-text text-left">
+    
+    <div class="row key-wallet-layout justify-content-between">
+      <div
+        class="col-12 col-lg-8 col-xl-8 order-2 order-lg-1 about-me-text text-left"
+      >
         <div class="text-holder key-wallet-shell">
           <h1>10+ years in the making</h1>
           
@@ -110,7 +113,7 @@ It is one of the oldest mobile wallets still available today. Previously known a
           
           
           <section class="key-wallet-note">
-            <h2></h2>
+            
             <div class="key-wallet-note-copy">
               The recommended way to install it on your phone, especially if you&rsquo;re going to manage substantial amounts of money, is to download the app directly from a GitHub APK file.
             </div>
@@ -119,7 +122,7 @@ It is one of the oldest mobile wallets still available today. Previously known a
           
           <div class="key-wallet-manual">
             
-            <article class="key-wallet-item">
+            <article class="key-wallet-item" id="wallet-setup">
               <h3>Wallet setup</h3>
               <div class="key-wallet-item-copy">
                 <p>Once the app is opened for the first time a new Bitcoin wallet gets generated randomly, and that wallet is not tied to your device in any way. This is important because simply reinstalling the app and generating another wallet will not restore your previous balance: you will get a completely new wallet with zero balance instead.</p>
@@ -130,7 +133,7 @@ It is one of the oldest mobile wallets still available today. Previously known a
               
             </article>
             
-            <article class="key-wallet-item">
+            <article class="key-wallet-item" id="recovery-phrase">
               <h3>Recovery phrase</h3>
               <div class="key-wallet-item-copy">
                 <p>It is a secret phrase comprising 12 random words which is provided to you by the app once a new Bitcoin wallet is created. The recovery phrase alone is sufficient to restore your Bitcoin wallet balance, so whoever knows it also fully controls your funds.</p>
@@ -141,7 +144,7 @@ It is one of the oldest mobile wallets still available today. Previously known a
               
             </article>
             
-            <article class="key-wallet-item">
+            <article class="key-wallet-item" id="rbf-and-cpfp">
               <h3>RBF and CPFP</h3>
               <div class="key-wallet-item-copy">
                 <p>RBF and CPFP allow you to speed up pending transaction confirmation time by increasing its fee. CPFP can be applied to incoming transactions while RBF is used with outgoing transactions.</p>
@@ -152,7 +155,7 @@ It is one of the oldest mobile wallets still available today. Previously known a
               
             </article>
             
-            <article class="key-wallet-item">
+            <article class="key-wallet-item" id="transaction-batching">
               <h3>Transaction batching</h3>
               <div class="key-wallet-item-copy">
                 It is possible to compose a single Bitcoin transaction which spends funds to many addresses at once. Doing so will greatly reduce chain fees. This feature is activated by sharing a list of <code>&lt;address&gt; &lt;amount&gt;;</code> pairs with the app. The list to be shared should look like this:
@@ -171,7 +174,7 @@ It is one of the oldest mobile wallets still available today. Previously known a
               
             </article>
             
-            <article class="key-wallet-item">
+            <article class="key-wallet-item" id="message-signing">
               <h3>Message signing</h3>
               <div class="key-wallet-item-copy">
                 <p>Key Wallet can sign and verify arbitrary messages according to <a href="https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki">BIP322</a>.</p>
@@ -186,6 +189,36 @@ It is one of the oldest mobile wallets still available today. Previously known a
           
         </div>
       </div>
+      
+      <aside class="col-12 col-lg-3 col-xl-3 order-1 order-lg-2 key-wallet-sidebar-wrap">
+        <nav class="key-wallet-side-menu" aria-label="Key Wallet section links">
+          <span class="key-wallet-side-menu-label">Contents</span>
+          <ul class="key-wallet-side-menu-list">
+            
+            <li>
+              <a href="#wallet-setup">Wallet setup</a>
+            </li>
+            
+            <li>
+              <a href="#recovery-phrase">Recovery phrase</a>
+            </li>
+            
+            <li>
+              <a href="#rbf-and-cpfp">RBF and CPFP</a>
+            </li>
+            
+            <li>
+              <a href="#transaction-batching">Transaction batching</a>
+            </li>
+            
+            <li>
+              <a href="#message-signing">Message signing</a>
+            </li>
+            
+          </ul>
+        </nav>
+      </aside>
+      
     </div>
   </div>
 </section>

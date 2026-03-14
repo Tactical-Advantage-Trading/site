@@ -718,6 +718,10 @@ input:checked + label span:last-child {
   max-width: 980px;
 }
 
+.key-wallet-layout {
+  align-items: flex-start;
+}
+
 .key-wallet-intro,
 .key-wallet-note-copy,
 .key-wallet-item-copy {
@@ -741,6 +745,7 @@ input:checked + label span:last-child {
   padding-top: 1em;
   border: 0;
   background: transparent;
+  scroll-margin-top: 84px;
 }
 
 .key-wallet-note {
@@ -768,6 +773,58 @@ input:checked + label span:last-child {
 .key-wallet-links {
   max-width: 360px;
   margin-bottom: 18px;
+}
+
+.key-wallet-sidebar-wrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.key-wallet-side-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #000;
+}
+
+.key-wallet-sidebar-wrap.key-wallet-sidebar-floating .key-wallet-side-menu {
+  position: fixed;
+  top: var(--key-wallet-side-menu-top, 74px);
+  left: var(--key-wallet-side-menu-left, auto);
+  width: var(--key-wallet-side-menu-width, 240px);
+  max-height: calc(100vh - var(--key-wallet-side-menu-top, 74px) - 18px);
+  overflow-y: auto;
+}
+
+.key-wallet-side-menu-label {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.key-wallet-side-menu-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.key-wallet-side-menu-list li + li {
+  margin-top: 8px;
+}
+
+.key-wallet-side-menu-list li::marker {
+  color: #fff;
+}
+
+.key-wallet-side-menu-list a {
+  display: inline-block;
+  padding: 6px 0;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.4;
 }
 
 .key-wallet-intro a,
@@ -1352,6 +1409,12 @@ ul.experience-chart h4 {
   }
   .vision-cards {
     column-count: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .key-wallet-sidebar-wrap {
+    display: none;
   }
 }
 
