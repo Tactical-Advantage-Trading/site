@@ -1,0 +1,25 @@
+<div class="footer container text-center" id="contact">
+  <ul class="footer-icons list-inline">
+    {{ range $.Site.Params.social }}
+      <li>
+        <a href="{{ .link | safeURL }}" target="_blank" rel="noreferrer"
+          ><i class="{{ .icon }} footer-icon fa-3x" aria-label="{{ .alt }}"></i
+        ></a>
+      </li>
+    {{ end }}
+  </ul>
+  <div class="credit">
+    {{ $.Site.Params.copyright | markdownify }}
+    <span id="current-year"></span>
+    <div style="margin-top: 0.35rem;">
+      art by
+      <a
+        href="https://www.instagram.com/_kruger_7215_/"
+        target="_blank"
+        rel="noreferrer"
+        style="color: inherit; text-decoration: underline;"
+        >kruger</a
+      >
+    </div>
+  </div>
+</div>
