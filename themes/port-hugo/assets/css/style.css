@@ -741,6 +741,7 @@ input:checked + label span:last-child {
 
 .key-wallet-shell {
   max-width: 980px;
+  min-width: 0;
 }
 
 .key-wallet-section {
@@ -770,12 +771,11 @@ input:checked + label span:last-child {
   color: #fff;
   font-size: 18px;
   line-height: 1.8;
+  font-weight: 400;
 }
 
 .key-wallet-intro {
   margin-bottom: 20px;
-  font-size: 19px;
-  font-weight: 500;
 }
 
 .key-wallet-intro p:last-child,
@@ -790,6 +790,7 @@ input:checked + label span:last-child {
   border: 0;
   background: transparent;
   scroll-margin-top: 84px;
+  min-width: 0;
 }
 
 .key-wallet-note {
@@ -893,20 +894,22 @@ input:checked + label span:last-child {
 
 .key-wallet-example {
   margin-top: 12px;
-  padding: 0;
-  border: 0;
+  padding: 16px 18px;
+  border: 1px solid #3a3a3a;
   border-radius: 0;
   background: transparent;
+  min-width: 0;
 }
 
 .key-wallet-example code {
   display: block;
   padding: 0;
   color: #fff;
-  font-size: 17px;
+  font-size: 18px;
   background: transparent;
   border-radius: 0;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .download-cv:hover,
@@ -1463,6 +1466,23 @@ ul.experience-chart h4 {
 }
 
 @media (max-width: 991px) {
+  .key-wallet-content-page {
+    --key-wallet-mobile-gutter: clamp(18px, 5vw, 28px);
+  }
+  .key-wallet-content-page .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--key-wallet-mobile-gutter);
+    padding-right: var(--key-wallet-mobile-gutter);
+  }
+  .key-wallet-content-page .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .key-wallet-content-page .row > [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .key-wallet-sidebar-wrap {
     display: none;
   }
