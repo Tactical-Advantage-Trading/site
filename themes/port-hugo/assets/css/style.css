@@ -1167,6 +1167,19 @@ ul.experience-chart h4 {
   color: #fff;
 }
 
+.footer-legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.footer-legal-links a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /*--------------------------------
   Start Header
 ----------------------------------*/
