@@ -9,6 +9,8 @@ html {
 :root {
   --font-body: 'Public Sans', 'Segoe UI', sans-serif;
   --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --footer-section-gap: clamp(24px, 4vw, 32px);
+  --vision-card-gap: 16px;
 }
 
 h1 {
@@ -540,6 +542,7 @@ input:checked + label span:last-child {
 
 .menu-normal {
   background: #000;
+  box-shadow: inset 0 -1px 0 #3a3a3a;
 }
 
 .menu-item {
@@ -606,7 +609,7 @@ input:checked + label span:last-child {
 }
 
 .about-me:last-of-type {
-  padding-bottom: 24px;
+  padding-bottom: var(--footer-section-gap);
 }
 
 .about-me + .about-me {
@@ -687,14 +690,15 @@ input:checked + label span:last-child {
 
 .vision-cards {
   column-count: 2;
-  column-gap: 16px;
+  column-gap: var(--vision-card-gap);
+  margin-bottom: calc(-1 * var(--vision-card-gap));
 }
 
 .vision-card {
   display: inline-flex;
   flex-direction: column;
   width: 100%;
-  margin: 0 0 16px;
+  margin: 0 0 var(--vision-card-gap);
   padding: 20px 20px 18px;
   border: 1px solid #3a3a3a;
   background: #000;
@@ -814,7 +818,7 @@ input:checked + label span:last-child {
 }
 
 .key-wallet-section {
-  padding-bottom: 24px;
+  padding-bottom: var(--footer-section-gap);
 }
 
 .key-wallet-links {
@@ -1455,9 +1459,6 @@ ul.experience-chart h4 {
   .about-me {
     padding: 40px 0px;
   }
-  .about-me:last-of-type {
-    padding-bottom: 20px;
-  }
   .about-me + .about-me {
     padding-top: 16px;
   }
@@ -1466,9 +1467,6 @@ ul.experience-chart h4 {
 @media (max-width: 600px) {
   .about-me {
     padding: 28px 0px;
-  }
-  .about-me:last-of-type {
-    padding-bottom: 16px;
   }
   .about-me + .about-me {
     padding-top: 12px;
