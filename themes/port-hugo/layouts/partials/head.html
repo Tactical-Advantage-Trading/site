@@ -12,6 +12,18 @@
     <meta name="author" content="{{ . }}" />
   {{ end }}
 
+  {{ if or .IsHome (eq .Layout "key-wallet") }}
+    <style>
+      html,
+      body,
+      #header,
+      .hero-image {
+        background: #000;
+        color: #fff;
+      }
+    </style>
+  {{ end }}
+
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range .Site.Params.plugins.css }}
     <link rel="stylesheet" href="{{ .link | relURL }}" />
