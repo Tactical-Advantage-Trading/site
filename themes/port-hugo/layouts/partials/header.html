@@ -12,12 +12,18 @@
     {{ if ne .mobile_bg_image "" }}
     <img
       class="d-none d-md-block"
+      data-hero-fade="true"
       src="{{ .bg_image | relURL }}"
       alt="background"
+      onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
+      onerror="this.dataset.heroLoaded='true';"
     /><img
       class="d-md-none"
+      data-hero-fade="true"
       src="{{ .mobile_bg_image | relURL }}"
       alt="background"
+      onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
+      onerror="this.dataset.heroLoaded='true';"
     />{{ else }} <img src="{{ .bg_image | relURL }}" alt="background" />{{ end
     }}
   </div>

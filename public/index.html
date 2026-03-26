@@ -23,7 +23,29 @@
         background: #000;
         color: #fff;
       }
+
+      .hero-image img[data-hero-fade='true'] {
+        opacity: 0;
+        transition: opacity 0.24s ease-out;
+      }
+
+      .hero-image img[data-hero-fade='true'][data-hero-loaded='true'] {
+        opacity: 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-image img[data-hero-fade='true'] {
+          transition: none;
+        }
+      }
     </style>
+    <noscript>
+      <style>
+        .hero-image img[data-hero-fade='true'] {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
   
 
   <!-- plugins -->
@@ -84,12 +106,18 @@
     
     <img
       class="d-none d-md-block"
+      data-hero-fade="true"
       src="/images/d3.jpg"
       alt="background"
+      onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
+      onerror="this.dataset.heroLoaded='true';"
     /><img
       class="d-md-none"
+      data-hero-fade="true"
       src="/images/m1.jpg"
       alt="background"
+      onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
+      onerror="this.dataset.heroLoaded='true';"
     />
   </div>
   <div class="container">

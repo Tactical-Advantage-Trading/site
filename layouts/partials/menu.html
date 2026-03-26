@@ -2,15 +2,15 @@
   <nav>
     <div class="menu-container">
       <ul class="desktop-menu list-inline mb-0" id="desktop-menu">
-        {{ if .Params.menu_back_to_home }} {{ $page := . }} {{ with
-        .Params.menu_section_target }}
+        {{ if .Params.menu_back_to_home }} {{ $page := . }}
+        <li class="menu-item hvr-underline-from-left">
+          <a href="/">&lsaquo; Tactical Advantage</a>
+        </li>
+        {{ with .Params.menu_section_target }}
         <li class="menu-item hvr-underline-from-left">
           <a href="{{ . }}">{{ $page.Params.menu_section_title | default "About" }}</a>
         </li>
         {{ end }}
-        <li class="menu-item hvr-underline-from-left">
-          <a href="/">&lsaquo; Tactical Advantage</a>
-        </li>
         {{ else }} {{ $isHome := .IsHome }} {{ range .Site.Menus.main }} {{
         $url := .URL }} {{ if and (not $isHome) (hasPrefix $url "#") }} {{ $url
         = printf "/%s" $url }} {{ end }}

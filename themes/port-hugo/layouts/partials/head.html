@@ -21,7 +21,29 @@
         background: #000;
         color: #fff;
       }
+
+      .hero-image img[data-hero-fade='true'] {
+        opacity: 0;
+        transition: opacity 0.24s ease-out;
+      }
+
+      .hero-image img[data-hero-fade='true'][data-hero-loaded='true'] {
+        opacity: 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-image img[data-hero-fade='true'] {
+          transition: none;
+        }
+      }
     </style>
+    <noscript>
+      <style>
+        .hero-image img[data-hero-fade='true'] {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
   {{ end }}
 
   {{ "<!-- plugins -->" | safeHTML }}
