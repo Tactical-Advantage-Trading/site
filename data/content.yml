@@ -91,8 +91,3 @@ key_wallet:
         3HoEwvrqYRnrizFN7gTg5ouSbV3Tek9pab 0.00491500
       after_example: |-
         Amounts can either be provided as Satoshis separated by comma or as Bitcoins with decimal point.
-    - title: "Message signing"
-      content: |-
-        Key Wallet can sign and verify arbitrary messages according to [BIP322](https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki).
-
-        To sign or verify a message you need to scan a QR code containing a [BIP322Share](https://github.com/Tactical-Advantage-Trading/wallet/blob/master/app/BIP322Share.md) string. Key Wallet generates such strings automatically once a message is signed so you can easily share them with others.
