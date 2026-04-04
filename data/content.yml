@@ -75,6 +75,11 @@ key_wallet:
         It is a secret phrase comprising 12 random words which is provided to you by the app once a new Bitcoin wallet is created. The recovery phrase alone is sufficient to restore your Bitcoin wallet balance, so whoever knows it also fully controls your funds.
 
         In a nutshell: **only the recovery phrase can restore your balance back in case you lose your phone or simply uninstall the app by accident**. Make sure to write it down and then keep it in a secure place.
+    - title: "Attached wallets"
+      content: |-
+        When a recovery phrase is generated, it is then securely stored on the device, and the default Bitcoin wallet is derived from it.
+
+        Users can then also attach additional Bitcoin wallets providing their own recovery phrases. Attached wallets work just like the default one: users can view balances, receive bitcoin, and send bitcoin from them, however attached wallet recovery phrase is never stored on the device.
     - title: "RBF and CPFP"
       content: |-
         RBF and CPFP allow you to speed up pending transaction confirmation time by increasing its fee. CPFP can be applied to incoming transactions while RBF is used with outgoing transactions.
