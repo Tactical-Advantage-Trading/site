@@ -13,6 +13,7 @@
             {{ range . }}
             <div class="about-link">
               <span class="about-link-label">{{ .label }}</span>
+              {{ if .href }}
               <a
                 class="about-link-value"
                 href="{{ .href }}"
@@ -20,6 +21,11 @@
               >
                 {{ .value }}
               </a>
+              {{ else }}
+              <span class="about-link-value">
+                {{ .value }}
+              </span>
+              {{ end }}
             </div>
             {{ end }}
           </div>

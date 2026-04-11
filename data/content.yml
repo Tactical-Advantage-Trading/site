@@ -14,6 +14,8 @@ about:
     We are a prop trading firm and a hedge fund, currently focusing on Bitcoin derivative markets. 
     We use AI/ML methods mixed with classic financial engineering to control risks and deliver competitive returns.
   links:
+    - label: "Mail"
+      value: "Quijano Chambers, P.O. Box 3159, Road Town, Tortola, British Virgin Islands"
     - label: "Email"
       value: "contact@tactical-advantage.trading"
       href: "mailto:contact@tactical-advantage.trading"

@@ -660,13 +660,17 @@ input:checked + label span:last-child {
   color: #fff;
   font-size: 17px;
   font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
   overflow-wrap: anywhere;
 }
 
-.about-link-value:hover,
-.about-link-value:focus {
+a.about-link-value {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a.about-link-value:hover,
+a.about-link-value:focus {
   color: #fff;
 }
 
