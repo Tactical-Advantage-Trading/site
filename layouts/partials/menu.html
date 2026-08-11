@@ -8,7 +8,22 @@
         </li>
         {{ with .Params.menu_section_target }}
         <li class="menu-item hvr-underline-from-left">
-          <a href="{{ . }}">{{ $page.Params.menu_section_title | default "About" }}</a>
+          <a href="{{ . }}"
+            >{{ if $page.Params.menu_section_back }}&lsaquo; {{ end }}{{
+            $page.Params.menu_section_title | default "About" }}</a
+          >
+        </li>
+        {{ end }}
+        {{ with .Params.menu_next_target }}
+        <li class="menu-item hvr-underline-from-left">
+          <a href="{{ . }}"
+            >{{ $page.Params.menu_next_title | default "Next" }} &rsaquo;</a
+          >
+        </li>
+        {{ end }}
+        {{ with .Params.menu_current_title }}
+        <li class="menu-item hvr-underline-from-left active">
+          <a href="{{ $page.RelPermalink }}" aria-current="page">{{ . }}</a>
         </li>
         {{ end }}
         {{ else }} {{ $isHome := .IsHome }} {{ range .Site.Menus.main }} {{
@@ -16,7 +31,7 @@
         = printf "/%s" $url }} {{ end }}
         <li class="menu-item hvr-underline-from-left {{ .Weight }}">
           <a href="{{ $url }}"
-            >{{ .Name }}{{ if eq .URL "/key-wallet" }} &rsaquo;{{ end }}</a
+            >{{ .Name }}{{ if hasPrefix .URL "/" }} &rsaquo;{{ end }}</a
           >
         </li>
         {{ end }}

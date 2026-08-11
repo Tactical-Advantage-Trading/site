@@ -11,12 +11,13 @@
   <div class="credit">
     {{ $.Site.Params.copyright | markdownify }}
     <span id="current-year"></span>
-    {{ if eq .Layout "key-wallet" }}
+    {{ if or (eq .Layout "key-wallet") (eq .Layout "claim-ecash") }}
       <div class="footer-legal-links">
         <a href="{{ "privacy-policy.txt" | relURL }}">Privacy Policy</a>
         <a href="{{ "terms-of-use.txt" | relURL }}">Terms Of Use</a>
       </div>
     {{ end }}
+    {{ if ne .Layout "claim-ecash" }}
     <div style="margin-top: 0.35rem;">
       art by
       <a
@@ -24,8 +25,9 @@
         target="_blank"
         rel="noreferrer"
         style="color: inherit; text-decoration: underline;"
-        >kruger</a
+      >kruger</a
       >
     </div>
+    {{ end }}
   </div>
 </div>

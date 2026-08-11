@@ -102,6 +102,113 @@
 
   initMenuTheme();
 
+  function initSectionMenuState() {
+    var $menu = $('#desktop-menu');
+    var entries = [];
+    var syncFrame = null;
+
+    if (!$menu.length) {
+      return;
+    }
+
+    $menu.find('a[href*="#"]').each(function () {
+      var link = this;
+      var url = new URL(link.href, window.location.href);
+      var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+      var linkPath = url.pathname.replace(/\/$/, '') || '/';
+      var $target;
+
+      if (
+        url.origin !== window.location.origin ||
+        linkPath !== currentPath ||
+        !url.hash
+      ) {
+        return;
+      }
+
+      $target = $(url.hash);
+
+      if (!$target.length) {
+        return;
+      }
+
+      entries.push({
+        $item: $(link).closest('.menu-item'),
+        $link: $(link),
+        $target: $target
+      });
+    });
+
+    if (!entries.length) {
+      return;
+    }
+
+    function setActiveEntry(activeEntry) {
+      entries.forEach(function (entry) {
+        var isActive = entry === activeEntry;
+
+        entry.$item.toggleClass('active', isActive);
+
+        if (isActive) {
+          entry.$link.attr('aria-current', 'location');
+        } else {
+          entry.$link.removeAttr('aria-current');
+        }
+      });
+    }
+
+    function syncSectionMenuState() {
+      var menuHeight = $('.menu-container').outerHeight() || 0;
+      var scrollTop = $(window).scrollTop();
+      var visualGap = 18;
+      var activeEntry = null;
+
+      if ($('html, body').is(':animated')) {
+        return;
+      }
+
+      entries.forEach(function (entry) {
+        var targetPaddingTop =
+          parseFloat(entry.$target.css('padding-top')) || 0;
+        var activationTop = Math.max(
+          entry.$target.offset().top -
+            menuHeight -
+            targetPaddingTop -
+            visualGap,
+          0
+        );
+
+        if (scrollTop >= activationTop - 1) {
+          activeEntry = entry;
+        }
+      });
+
+      setActiveEntry(activeEntry);
+    }
+
+    entries.forEach(function (entry) {
+      entry.$link.on('click', function () {
+        setActiveEntry(entry);
+      });
+    });
+
+    function queueSectionMenuSync() {
+      if (syncFrame !== null) {
+        window.cancelAnimationFrame(syncFrame);
+      }
+
+      syncFrame = window.requestAnimationFrame(function () {
+        syncSectionMenuState();
+        syncFrame = null;
+      });
+    }
+
+    $(window).on('load resize scroll', queueSectionMenuSync);
+    syncSectionMenuState();
+  }
+
+  initSectionMenuState();
+
   function initKeyWalletSideMenu() {
     var $sidebarWrap = $('.key-wallet-sidebar-wrap');
     var $sideMenu = $sidebarWrap.find('.key-wallet-side-menu');
@@ -165,6 +272,122 @@
   }
 
   initKeyWalletSideMenu();
+
+  function initClaimStepGuides() {
+    $('.claim-guide-section').each(function () {
+      var $section = $(this);
+      var $track = $section.find('[data-claim-step-track]').first();
+      var $steps = $track.find('[data-claim-step]');
+      var $buttons = $section.find('[data-claim-step-button]');
+      var scrollFrame = null;
+      var activeIndex = 0;
+
+      if (!$track.length || !$steps.length || !$buttons.length) {
+        return;
+      }
+
+      function setActiveStep(index) {
+        activeIndex = index;
+        $buttons.removeClass('is-active').attr('aria-current', 'false');
+        $steps.removeClass('is-active');
+
+        $buttons.eq(index).addClass('is-active').attr('aria-current', 'step');
+        $steps.eq(index).addClass('is-active');
+      }
+
+      function syncActiveStep() {
+        var trackRect = $track[0].getBoundingClientRect();
+        var closestIndex = 0;
+        var largestVisibleWidth = -1;
+
+        $steps.each(function (index) {
+          var stepRect = this.getBoundingClientRect();
+          var visibleWidth = Math.max(
+            0,
+            Math.min(stepRect.right, trackRect.right) -
+              Math.max(stepRect.left, trackRect.left)
+          );
+
+          if (visibleWidth > largestVisibleWidth) {
+            largestVisibleWidth = visibleWidth;
+            closestIndex = index;
+          }
+        });
+
+        setActiveStep(closestIndex);
+      }
+
+      function scrollToStep(index) {
+        var target = $steps.get(index);
+        var trackPaddingLeft =
+          parseFloat(window.getComputedStyle($track[0]).paddingLeft) || 0;
+        var reduceMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (!target) {
+          return;
+        }
+
+        setActiveStep(index);
+        $track[0].scrollTo({
+          left: Math.max(target.offsetLeft - trackPaddingLeft, 0),
+          behavior: reduceMotion ? 'auto' : 'smooth'
+        });
+      }
+
+      function isLastStepFullyVisible() {
+        var trackRect = $track[0].getBoundingClientRect();
+        var lastStep = $steps.get($steps.length - 1);
+        var lastStepRect = lastStep.getBoundingClientRect();
+
+        return (
+          lastStepRect.left >= trackRect.left - 1 &&
+          lastStepRect.right <= trackRect.right + 1
+        );
+      }
+
+      $buttons.on('click', function () {
+        var index = $buttons.index(this);
+
+        scrollToStep(index);
+      });
+
+      $steps.on('click', function (event) {
+        var selection = window.getSelection();
+
+        if (
+          $(event.target).closest('a, button, input, select, textarea').length ||
+          (selection && selection.toString())
+        ) {
+          return;
+        }
+
+        if (isLastStepFullyVisible()) {
+          scrollToStep(0);
+          return;
+        }
+
+        scrollToStep(Math.min(activeIndex + 1, $steps.length - 1));
+      });
+
+      $track.on('scroll', function () {
+        if (scrollFrame !== null) {
+          window.cancelAnimationFrame(scrollFrame);
+        }
+
+        scrollFrame = window.requestAnimationFrame(function () {
+          syncActiveStep();
+          scrollFrame = null;
+        });
+      });
+
+      $(window).on('resize', syncActiveStep);
+      syncActiveStep();
+    });
+  }
+
+  initClaimStepGuides();
 
   $('#current-year').html(new Date().getFullYear());
 })(jQuery);

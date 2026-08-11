@@ -1,0 +1,90 @@
+{{ define "main" }}
+{{- partial "menu.html" . -}}
+<main class="claim-ecash-content-page">
+  <section class="about-me claim-ecash-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 col-11 about-me-text text-left">
+          <div class="claim-ecash-copy claim-ecash-intro">
+            {{ .Content }}
+          </div>
+        </div>
+      </div>
+    </div>
+      {{ range $sectionIndex, $section := .Params.claim_sections }}
+      {{ $sectionNumber := add $sectionIndex 1 }}
+      {{ $sectionID := printf "claim-section-%d" $sectionNumber }}
+      <section
+        class="claim-guide-section"
+        id="{{ $sectionID }}"
+        aria-labelledby="{{ $sectionID }}-title"
+      >
+        <div class="container">
+          <h2 class="claim-guide-title" id="{{ $sectionID }}-title">
+            {{ $section.title }}
+          </h2>
+          {{ with $section.intro }}
+          <div class="claim-guide-intro">
+            {{ . | markdownify }}
+          </div>
+          {{ end }}
+          <nav class="claim-step-nav" aria-label="{{ $section.title }} steps">
+            <ol class="claim-step-nav-list">
+              {{ range $stepIndex, $step := $section.steps }}
+              {{ $stepNumber := add $stepIndex 1 }}
+              {{ $stepID := printf "%s-step-%d" $sectionID $stepNumber }}
+              {{ $buttonID := printf "%s-button" $stepID }}
+              <li>
+                <button
+                  class="claim-step-nav-button{{ if eq $stepIndex 0 }} is-active{{ end }}"
+                  id="{{ $buttonID }}"
+                  type="button"
+                  data-claim-step-button
+                  aria-controls="{{ $stepID }}"
+                  aria-current="{{ if eq $stepIndex 0 }}step{{ else }}false{{ end }}"
+                >
+                  {{ $sectionNumber }}.{{ $stepNumber }}
+                </button>
+              </li>
+              {{ end }}
+            </ol>
+          </nav>
+          <div
+            class="claim-step-track"
+            data-claim-step-track
+            tabindex="0"
+            aria-label="{{ $section.title }} illustrated steps"
+          >
+            {{ range $stepIndex, $step := $section.steps }}
+            {{ $stepNumber := add $stepIndex 1 }}
+            {{ $stepID := printf "%s-step-%d" $sectionID $stepNumber }}
+            {{ $buttonID := printf "%s-button" $stepID }}
+            <article
+              class="claim-step-card{{ if eq $stepIndex 0 }} is-active{{ end }}"
+              id="{{ $stepID }}"
+              data-claim-step
+              aria-labelledby="{{ $buttonID }} {{ $stepID }}-title"
+            >
+              <figure class="claim-step-figure">
+                <img
+                  class="claim-step-image"
+                  src="{{ $step.image | relURL }}"
+                  alt="{{ $step.image_alt }}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="claim-step-copy">
+                <h3 id="{{ $stepID }}-title">{{ $step.title }}</h3>
+                {{ $step.content | markdownify }}
+              </div>
+            </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+      {{ end }}
+  </section>
+  {{- partial "footer.html" . -}}
+</main>
+{{ end }}

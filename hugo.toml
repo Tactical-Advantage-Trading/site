@@ -36,6 +36,11 @@ name = "Key Wallet"
 URL = "/key-wallet"
 weight = 3
 
+[[menu.main]]
+name = "Claim eCash"
+URL = "/claim-ecash"
+weight = 4
+
 [params]
 copyright = "Tactical Advantage"
 description = "Algorithmic trading, Investing & Finance"

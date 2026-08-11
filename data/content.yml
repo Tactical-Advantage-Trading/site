@@ -11,11 +11,11 @@ about:
   enable: true
   title: "About"
   content: |-
-    We are a prop trading firm and a hedge fund, currently focusing on Bitcoin derivative markets. 
+    We are a prop trading firm, currently focusing on cryptocurrency derivative markets.
     We use AI/ML methods mixed with classic financial engineering to control risks and deliver competitive returns.
   links:
-    - label: "Mail"
-      value: "Quijano Chambers, P.O. Box 3159, Road Town, Tortola, British Virgin Islands"
+    # - label: "Mail"
+    #   value: "Quijano Chambers, P.O. Box 3159, Road Town, Tortola, British Virgin Islands"
     - label: "Email"
       value: "contact@tactical-advantage.trading"
       href: "mailto:contact@tactical-advantage.trading"
@@ -32,16 +32,16 @@ vision:
   title: "Vision"
   quotes:
     - text: |-
-        Risk only turns into loss occasionally when the tide goes out, but the prudent investor and hopefully his or her clients knows that risk is being controlled even at times when it doesn't come to the surface. 
+        Risk only turns into loss occasionally when the tide goes out, but the prudent investor and hopefully his or her clients knows that risk is being controlled even at times when it doesn't come to the surface.
 
         So I think that risk is something to be managed and controlled but not avoided. Risk is indispensable, risk avoidance is not an appropriate goal in investing. I think and my experience tells me from watching others that risk avoidance equates to return avoidance.
       source: "How to Think About Risk"
       authors: "Howard Marks"
     - text: |-
-        Here is a good candidate for a function of consciousness: Our conscious experience of the world typically involves objects and actions, rather than isolated sensations and movements and it is plausible that consciousness is necessary for integrating information (Tononi, 2008), and for broadcasting information between different processing modules (Baars, 1988; Dehaene and Naccache, 2001). 
-        
-        However, we are doubtful. There is increasing evidence that sensory integration happens even at the earliest stages of sensory processing (e.g. Lemus et al., 2010; Watkins et al., 2007) and even high-level, cross-modal integration of symbols can occur without awareness (Faivre et al., 2014). For many activities there is clear need for 'global availability' of information. But why should this global access be associated with subjective experience? 
-        
+        Here is a good candidate for a function of consciousness: Our conscious experience of the world typically involves objects and actions, rather than isolated sensations and movements and it is plausible that consciousness is necessary for integrating information (Tononi, 2008), and for broadcasting information between different processing modules (Baars, 1988; Dehaene and Naccache, 2001).
+
+        However, we are doubtful. There is increasing evidence that sensory integration happens even at the earliest stages of sensory processing (e.g. Lemus et al., 2010; Watkins et al., 2007) and even high-level, cross-modal integration of symbols can occur without awareness (Faivre et al., 2014). For many activities there is clear need for 'global availability' of information. But why should this global access be associated with subjective experience?
+
         Furthermore, decisions, which require the integration of many sources of information, seem to be better made in the absence of conscious reflection (Dijksterhuis and Nordgren, 2006), perhaps because appropriate weighting of multiple sources of information is disrupted by conscious deliberation (Engel and Singer, 2008; Levine et al., 1996). A similar phenomenon can be observed in the performance of highly skilled acts (Beilock et al., 2002).
       source: "What's the use of consciousness?"
       authors: "Chris D Frith & Thomas Metzinger"
