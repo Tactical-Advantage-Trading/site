@@ -85,7 +85,7 @@
       return;
     }
 
-    if (!$hero.length) {
+    if (!$hero.length && !$('.claim-ecash-content-page').length) {
       setMenuTheme(true);
       return;
     }

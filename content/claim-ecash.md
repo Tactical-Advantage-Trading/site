@@ -34,17 +34,17 @@ title = "1. Claim your ECX balance"
 
   It shows several wallet standards for ECX at once because Bitcoin wallets have used all these standards over the years, so user funds may be scattered across them.
 
-  In this example, user does have BTC balances scattered across different wallet standards, so they are reflected as 1:1 balances on respected EXC cards.
+  In this example, user does have BTC balances scattered across different wallet standards, so they are reflected as 1:1 balances on respected ECX cards.
 
 In this example, ECX BIP84 and BTC BIP84 balances match because they represent the same coins on two separate networks."""
 
 [[claim_sections]]
 title = "2. Activate replay protection"
-intro = """At the fork, every pre-fork coin exists on both Bitcoin and eCash. At first, the two copies share the same spending history. This means that a transaction intended only for Bitcoin can be copied—or **replayed**—on eCash, moving your ECX as well.
+intro = """At the fork, every pre-fork coin exists on both Bitcoin and eCash. At first, the two copies can share the same spending history. This means that a transaction intended only for Bitcoin can be copied—or **replayed**—on eCash, moving your ECX as well.
 
-Replay protection process separates the two copies. Essentially what this means is Key Wallet creates a protected ECX transaction that Bitcoin will reject, then uses it to send all your ECX back to an ECX address you control. Once that transaction confirms, the ECX copy has moved while the BTC copy has not, so future BTC payments can no longer drag those ECX funds along with them.
+Replay protection is a way to permanently sever the two copies. This is realized by making an ECX transaction that Bitcoin will reject, and then broadcast it to send all your ECX back to yourself. Once that transaction confirms, the ECX copy has moved while the BTC copy has not, so future BTC payments can no longer drag those ECX funds along with them.
 
-Start by tapping the first **ECX eCash** wallet card shown in the previous section. This opens your ECX BIP84 receiving addresses. From there on, proceed with this tutorial."""
+To do it, start by tapping the first **ECX eCash** wallet card shown in the previous section. This opens your ECX BIP84 receiving addresses. From there on, proceed with this tutorial."""
 
   [[claim_sections.steps]]
   title = "Choose your ECX address"
@@ -85,7 +85,7 @@ Once it confirms on eCash, replay protection is permanently active: the ECX has 
 **Do not move your BTC until this ECX transaction has confirmed.**"""
 
 [[claim_sections]]
-title = "3. Clean up unused ECX cards"
+title = "3. Clean up legacy ECX wallets"
 intro = """Once your ECX balances have been swept into the default BIP84 wallet, the empty legacy BIP44 and BIP32 cards are no longer needed on the main screen.
 
 Hiding them is optional. It simply keeps the wallet view tidy and does not move any funds."""
