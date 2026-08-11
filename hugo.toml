@@ -1,5 +1,6 @@
 baseURL = "https://tactical-advantage.trading/"
 title = "Tactical Advantage"
+languageCode = "en-US"
 locale = "en-US"
 theme = "port-hugo"
 

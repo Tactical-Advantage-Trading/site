@@ -279,20 +279,70 @@
       var $track = $section.find('[data-claim-step-track]').first();
       var $steps = $track.find('[data-claim-step]');
       var $buttons = $section.find('[data-claim-step-button]');
+      var $mobileCopyDeck = $section.find('.claim-mobile-copy-deck').first();
+      var $mobileCopies = $section.find('[data-claim-mobile-copy]');
       var scrollFrame = null;
+      var scrollEndTimer = null;
+      var programmaticIndex = null;
       var activeIndex = 0;
 
       if (!$track.length || !$steps.length || !$buttons.length) {
         return;
       }
 
-      function setActiveStep(index) {
-        activeIndex = index;
-        $buttons.removeClass('is-active').attr('aria-current', 'false');
-        $steps.removeClass('is-active');
+      function syncMobileCopyDeckHeight(index) {
+        var mobileCopy = $mobileCopies.get(index);
 
-        $buttons.eq(index).addClass('is-active').attr('aria-current', 'step');
-        $steps.eq(index).addClass('is-active');
+        if (!$mobileCopyDeck.length || !mobileCopy) {
+          return;
+        }
+
+        if (!window.matchMedia('(max-width: 767px)').matches) {
+          $mobileCopyDeck.removeClass('is-ready').css('height', '');
+          return;
+        }
+
+        $mobileCopyDeck
+          .css(
+            'height',
+            Math.ceil(mobileCopy.getBoundingClientRect().height + 2) + 'px'
+          )
+          .addClass('is-ready');
+      }
+
+      function setActiveStep(index) {
+        if (index < 0 || index >= $steps.length) {
+          return;
+        }
+
+        var activeStepChanged =
+          index !== activeIndex ||
+          !$mobileCopies.eq(index).hasClass('is-active');
+
+        activeIndex = index;
+
+        if (activeStepChanged) {
+          $buttons.removeClass('is-active').attr('aria-current', 'false');
+          $steps.removeClass('is-active');
+          $mobileCopies.removeClass('is-active').attr('aria-hidden', 'true');
+
+          $buttons.eq(index).addClass('is-active').attr('aria-current', 'step');
+          $steps.eq(index).addClass('is-active');
+          $mobileCopies
+            .eq(index)
+            .addClass('is-active')
+            .attr('aria-hidden', 'false');
+        }
+
+        syncMobileCopyDeckHeight(index);
+      }
+
+      function scheduleProgrammaticScrollEnd() {
+        window.clearTimeout(scrollEndTimer);
+        scrollEndTimer = window.setTimeout(function () {
+          programmaticIndex = null;
+          syncActiveStep();
+        }, 160);
       }
 
       function syncActiveStep() {
@@ -329,11 +379,13 @@
           return;
         }
 
+        programmaticIndex = index;
         setActiveStep(index);
         $track[0].scrollTo({
           left: Math.max(target.offsetLeft - trackPaddingLeft, 0),
           behavior: reduceMotion ? 'auto' : 'smooth'
         });
+        scheduleProgrammaticScrollEnd();
       }
 
       function isLastStepFullyVisible() {
@@ -372,6 +424,11 @@
       });
 
       $track.on('scroll', function () {
+        if (programmaticIndex !== null) {
+          scheduleProgrammaticScrollEnd();
+          return;
+        }
+
         if (scrollFrame !== null) {
           window.cancelAnimationFrame(scrollFrame);
         }
@@ -382,7 +439,7 @@
         });
       });
 
-      $(window).on('resize', syncActiveStep);
+      $(window).on('load resize', syncActiveStep);
       syncActiveStep();
     });
   }

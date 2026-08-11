@@ -1,4 +1,4 @@
-{{ $hero := hugo.Data.content.hero }} {{ with .Params.hero }} {{ $hero = merge
+{{ $hero := .Site.Data.content.hero }} {{ with .Params.hero }} {{ $hero = merge
 $hero . }} {{ end }}
 <section class="header" id="header">
   {{ if .Site.Params.enable_logo }}

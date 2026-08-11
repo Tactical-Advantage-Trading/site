@@ -1,6 +1,6 @@
 {{ define "main" }} {{- partial "menu.html" . -}} {{- partial "header.html" . -}}
 
-{{ if hugo.Data.content.about.enable }} {{ with hugo.Data.content.about }}
+{{ if .Site.Data.content.about.enable }} {{ with .Site.Data.content.about }}
 <section class="about-me" id="about">
   <div class="container">
     <div class="row">
@@ -37,7 +37,7 @@
 </section>
 {{ end }} {{ end }}
 
-{{ if hugo.Data.content.vision.enable }} {{ with hugo.Data.content.vision }}
+{{ if .Site.Data.content.vision.enable }} {{ with .Site.Data.content.vision }}
 <section class="about-me vision-section" id="vision">
   <div class="container">
     <div class="vision-section-head about-me-text text-left">

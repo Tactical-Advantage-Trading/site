@@ -49,6 +49,22 @@
               {{ end }}
             </ol>
           </nav>
+          <div class="claim-mobile-copy-deck" aria-live="polite">
+            {{ range $stepIndex, $step := $section.steps }}
+            {{ $stepNumber := add $stepIndex 1 }}
+            <article
+              class="claim-mobile-step-copy{{ if eq $stepIndex 0 }} is-active{{ end }}"
+              data-claim-mobile-copy
+              data-step-label="{{ $sectionNumber }}.{{ $stepNumber }}"
+              aria-hidden="{{ if eq $stepIndex 0 }}false{{ else }}true{{ end }}"
+            >
+              <h3>{{ $step.title }}</h3>
+              <div class="claim-mobile-step-body">
+                {{ $step.content | markdownify }}
+              </div>
+            </article>
+            {{ end }}
+          </div>
           <div
             class="claim-step-track"
             data-claim-step-track
@@ -63,6 +79,7 @@
               class="claim-step-card{{ if eq $stepIndex 0 }} is-active{{ end }}"
               id="{{ $stepID }}"
               data-claim-step
+              data-step-label="{{ $sectionNumber }}.{{ $stepNumber }}"
               aria-labelledby="{{ $buttonID }} {{ $stepID }}-title"
             >
               <figure class="claim-step-figure">
@@ -80,8 +97,13 @@
                 <h3 id="{{ $stepID }}-title">{{ $step.title }}</h3>
                 {{ $step.content | markdownify }}
               </div>
+              <div class="claim-step-mobile-meta" aria-hidden="true">
+                <span>Screen {{ $sectionNumber }}.{{ $stepNumber }}</span>
+                <span>Swipe or tap&nbsp;&rarr;</span>
+              </div>
             </article>
             {{ end }}
+            <span class="claim-step-track-end" aria-hidden="true"></span>
           </div>
         </div>
       </section>

@@ -910,6 +910,15 @@ a.about-link-value:focus {
   flex: 0 0 var(--claim-step-track-end-gap);
 }
 
+.claim-step-track-end {
+  display: none;
+}
+
+.claim-mobile-copy-deck,
+.claim-step-mobile-meta {
+  display: none;
+}
+
 @media (min-width: 576px) {
   .claim-step-track {
     --claim-step-track-gutter: calc((100vw - 510px) / 2);
@@ -1001,71 +1010,231 @@ a.about-link-value:focus {
 }
 
 @media (max-width: 767px) {
+  .claim-ecash-content-page {
+    --claim-ecash-mobile-gutter: clamp(18px, 5vw, 28px);
+  }
+
+  .claim-ecash-content-page .claim-ecash-section {
+    padding-top: 104px;
+  }
+
+  .claim-ecash-section > .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--claim-ecash-mobile-gutter);
+    padding-right: var(--claim-ecash-mobile-gutter);
+  }
+
+  .claim-ecash-section > .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .claim-ecash-section > .container > .row > [class*='col-'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .claim-guide-section {
-    margin-top: 48px;
+    margin-top: 72px;
+  }
+
+  .claim-ecash-section > .container + .claim-guide-section {
+    margin-top: 16px;
+  }
+
+  .claim-step-nav {
+    margin-bottom: 14px;
   }
 
   .claim-step-nav-list {
-    gap: 8px;
+    gap: 6px;
   }
 
   .claim-step-nav-list li {
-    flex: 1 1 50px;
+    flex: 1 1 0;
     min-width: 0;
-    max-width: 58px;
+    max-width: none;
   }
 
   .claim-step-nav-button {
     width: 100%;
     min-width: 0;
-    padding: 8px 4px;
+    padding: 9px 4px;
+    font-size: 13px;
+  }
+
+  .claim-mobile-copy-deck {
+    position: relative;
+    display: block;
+    margin-bottom: 14px;
+    overflow: hidden;
+    border: 1px solid #343434;
+    border-left: 2px solid #fff;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 46%),
+      #080808;
+    transition: height 0.24s ease;
+  }
+
+  .claim-mobile-step-copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    min-width: 0;
+    padding: 20px 18px 22px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(7px);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.65;
+    pointer-events: none;
+    transition:
+      opacity 0.17s ease,
+      transform 0.22s ease,
+      visibility 0s linear 0.22s;
+  }
+
+  .claim-mobile-step-copy::after {
+    position: absolute;
+    right: 12px;
+    bottom: -12px;
+    z-index: -1;
+    content: attr(data-step-label);
+    color: rgba(255, 255, 255, 0.045);
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 27vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .claim-mobile-step-copy.is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0.06s, 0.06s, 0s;
+  }
+
+  .claim-mobile-copy-deck:not(.is-ready) .claim-mobile-step-copy.is-active {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+  }
+
+  .claim-mobile-step-copy h3 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(1.4rem, 6vw, 1.65rem);
+    line-height: 1.15;
+  }
+
+  .claim-mobile-step-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .claim-mobile-step-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .claim-mobile-step-body a,
+  .claim-mobile-step-body a:visited,
+  .claim-mobile-step-body a:hover,
+  .claim-mobile-step-body a:focus {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .claim-step-track {
     --claim-step-track-end-gap: 24px;
 
-    gap: 16px;
-    align-items: flex-start;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .claim-step-track::after {
+    display: none;
+  }
+
+  .claim-step-track-end {
+    display: block;
+    flex: 0 0 var(--claim-step-track-end-gap);
+    align-self: stretch;
   }
 
   .claim-step-card {
-    --claim-step-card-gap: 16px;
+    display: flex;
+    flex-basis: calc(100% - 48px);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    border-color: #343434;
+    background: #111;
+  }
 
-    flex-basis: calc(100% - 32px);
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "copy"
-      "image";
-    align-content: start;
-    align-items: start;
+  .claim-step-card.is-active {
+    border-color: #777;
   }
 
   .claim-step-figure {
-    grid-area: image;
+    position: relative;
+    flex: 0 0 auto;
     width: 100%;
-    align-items: flex-start;
-    justify-content: center;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    background: #272a2e;
   }
 
   .claim-step-image {
-    flex: 0 0 auto;
-    width: min(100%, 220px);
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-  }
-
-  .claim-step-copy {
-    grid-area: copy;
     width: 100%;
-    font-size: 16px;
-    line-height: 1.65;
-    overflow-wrap: anywhere;
+    height: 100%;
+    max-height: none;
+    border: 0;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0.78;
+    transition: opacity 0.18s ease;
   }
 
-  .claim-step-copy h3 {
-    margin-bottom: 12px;
-    font-size: clamp(1.4rem, 6vw, 1.65rem);
+  .claim-step-card.is-active .claim-step-image {
+    opacity: 1;
+  }
+
+  .claim-step-card .claim-step-copy {
+    display: none;
+  }
+
+  .claim-step-mobile-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 42px;
+    padding: 0 13px;
+    border-top: 1px solid #343434;
+    color: #aaa;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .claim-mobile-copy-deck,
+  .claim-mobile-step-copy {
+    transition: none;
   }
 }
 

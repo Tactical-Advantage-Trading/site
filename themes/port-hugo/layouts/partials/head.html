@@ -29,7 +29,7 @@
   />
 
   {{ if or .IsHome (eq .Layout "key-wallet") }}
-    {{ $hero := hugo.Data.content.hero }}
+    {{ $hero := .Site.Data.content.hero }}
     {{ with .Params.hero }}
       {{ $hero = merge $hero . }}
     {{ end }}
