@@ -552,6 +552,23 @@ input:checked + label span:last-child {
   margin: 0;
 }
 
+.hvr-underline-from-left {
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1px) translateZ(0);
+}
+
+.hvr-underline-from-left::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  transition-duration: 0.3s;
+  transition-property: right;
+  transition-timing-function: ease-out;
+}
+
 .desktop-menu .hvr-underline-from-left:hover:before,
 .desktop-menu .hvr-underline-from-left:focus:before,
 .desktop-menu .hvr-underline-from-left:active:before,
@@ -988,27 +1005,67 @@ a.about-link-value:focus {
     margin-top: 48px;
   }
 
-  .claim-step-track {
-    --claim-step-track-end-gap: 16px;
+  .claim-step-nav-list {
+    gap: 8px;
+  }
 
-    gap: 0;
+  .claim-step-nav-list li {
+    flex: 1 1 50px;
+    min-width: 0;
+    max-width: 58px;
+  }
+
+  .claim-step-nav-button {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 4px;
+  }
+
+  .claim-step-track {
+    --claim-step-track-end-gap: 24px;
+
+    gap: 16px;
+    align-items: flex-start;
   }
 
   .claim-step-card {
     --claim-step-card-gap: 16px;
 
-    flex-basis: calc(100% - var(--claim-step-track-end-gap));
+    flex-basis: calc(100% - 32px);
     grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "copy"
+      "image";
+    align-content: start;
     align-items: start;
   }
 
+  .claim-step-figure {
+    grid-area: image;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
   .claim-step-image {
-    width: min(100%, 240px);
+    flex: 0 0 auto;
+    width: min(100%, 220px);
+    height: auto;
     max-height: none;
+    object-fit: contain;
   }
 
   .claim-step-copy {
-    font-size: 17px;
+    grid-area: copy;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+
+  .claim-step-copy h3 {
+    margin-bottom: 12px;
+    font-size: clamp(1.4rem, 6vw, 1.65rem);
   }
 }
 
@@ -1663,7 +1720,13 @@ ul.experience-chart h4 {
   overflow: hidden;
 }
 
+.hero-image picture {
+  display: block;
+  height: 100%;
+}
+
 .hero-image img {
+  display: block;
   object-fit: cover;
   min-height: 100%;
   width: 100%;

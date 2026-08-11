@@ -12,7 +12,55 @@
     <meta name="author" content="{{ . }}" />
   {{ end }}
 
+  <link rel="preconnect" href="https://stackpath.bootstrapcdn.com" />
+  <link
+    rel="preload"
+    href="{{ "fonts/public-sans-v21-latin.woff2" | relURL }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+  <link
+    rel="preload"
+    href="{{ "fonts/sora-v17-latin.woff2" | relURL }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+
   {{ if or .IsHome (eq .Layout "key-wallet") }}
+    {{ $hero := hugo.Data.content.hero }}
+    {{ with .Params.hero }}
+      {{ $hero = merge $hero . }}
+    {{ end }}
+    {{ with $hero }}
+      {{ $mobileImage := .mobile_bg_image }}
+      {{ if and $mobileImage (ne $mobileImage .bg_image) }}
+        <link
+          rel="preload"
+          as="image"
+          href="{{ $mobileImage | relURL }}"
+          media="(max-width: 767.98px)"
+          fetchpriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="{{ .bg_image | relURL }}"
+          media="(min-width: 768px)"
+          fetchpriority="high"
+        />
+      {{ else }}
+        {{ with .bg_image }}
+          <link
+            rel="preload"
+            as="image"
+            href="{{ . | relURL }}"
+            fetchpriority="high"
+          />
+        {{ end }}
+      {{ end }}
+    {{ end }}
     <style>
       html,
       body,
@@ -53,8 +101,16 @@
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
 
-  {{ $styles := resources.Get "css/style.css" }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen" />
+  {{ $fontStyles := resources.Get "css/fonts.css" }}
+  {{ $mainStyles := resources.Get "css/style.css" }}
+  {{ $styles := slice $fontStyles $mainStyles | resources.Concat "css/site.css" | minify | fingerprint "sha384" }}
+  <link
+    rel="stylesheet"
+    href="{{ $styles.RelPermalink }}"
+    integrity="{{ $styles.Data.Integrity }}"
+    crossorigin="anonymous"
+    media="screen"
+  />
 
   {{ "<!--Favicon-->" | safeHTML }}
 
@@ -86,8 +142,10 @@
       name="theme-color"
       content="{{ .Site.Params.special_favicon.theme_color }}"
     />
-    {{ else }}
-    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}" />
+  {{ else }}
+    {{ with .Site.Params.favicon }}
+      <link rel="icon" type="image/png" href="{{ . }}" />
+    {{ end }}
   {{ end }}
   {{ with .Site.Params.google_analytics }}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>

@@ -1,5 +1,13 @@
-{{ "<!-- JS Plugins -->" | safeHTML }} {{ range .Site.Params.plugins.js }}
-<script src="{{ .link | relURL }}"></script>
-{{ end }} {{ "<!-- Main Scripts -->" | safeHTML }} {{ $script := resources.Get
-"js/script.js" | minify }}
-<script src="{{ $script.RelPermalink }}"></script>
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js }}
+  <script src="{{ .link | relURL }}"></script>
+{{ end }}
+{{ "<!-- Main Scripts -->" | safeHTML }}
+{{ $jquery := resources.Get "js/vendor/jquery-3.5.1.min.js" }}
+{{ $mainScript := resources.Get "js/script.js" | minify }}
+{{ $script := slice $jquery $mainScript | resources.Concat "js/site.js" | fingerprint "sha384" }}
+<script
+  src="{{ $script.RelPermalink }}"
+  integrity="{{ $script.Data.Integrity }}"
+  crossorigin="anonymous"
+></script>

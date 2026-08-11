@@ -552,6 +552,23 @@ input:checked + label span:last-child {
   margin: 0;
 }
 
+.hvr-underline-from-left {
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1px) translateZ(0);
+}
+
+.hvr-underline-from-left::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  transition-duration: 0.3s;
+  transition-property: right;
+  transition-timing-function: ease-out;
+}
+
 .desktop-menu .hvr-underline-from-left:hover:before,
 .desktop-menu .hvr-underline-from-left:focus:before,
 .desktop-menu .hvr-underline-from-left:active:before,
@@ -1663,7 +1680,13 @@ ul.experience-chart h4 {
   overflow: hidden;
 }
 
+.hero-image picture {
+  display: block;
+  height: 100%;
+}
+
 .hero-image img {
+  display: block;
   object-fit: cover;
   min-height: 100%;
   width: 100%;

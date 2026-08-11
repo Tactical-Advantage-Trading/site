@@ -57,7 +57,7 @@ key_wallet:
   enable: true
   title: "10+ years in the making"
   intro: |-
-    Key Wallet is our open-source, non-custodial, autonomous Bitcoin wallet for Android, as well as an account control tool for our clients.
+    Key Wallet is our open-source, non-custodial, autonomous eCash and Bitcoin wallet for Android, as well as an account control tool for our clients.
     It is one of the oldest mobile wallets still available today. Previously known as Simple Bitcoin Wallet, it has been around since 2016 and is not going anywhere.
   links:
     - label: "Get the app"
@@ -69,19 +69,19 @@ key_wallet:
   sections:
     - title: "Wallet setup"
       content: |-
-        Once the app is opened for the first time a new Bitcoin wallet gets generated randomly, and that wallet is not tied to your device in any way. This is important because simply reinstalling the app and generating another wallet will not restore your previous balance: you will get a completely new wallet with zero balance instead.
+        Once the app is opened for the first time, a new wallet gets generated randomly, and that wallet is not tied to your device in any way. This is important because simply reinstalling the app and generating another wallet will not restore your previous balance: you will get a completely new wallet with zero balance instead.
 
         There is, however, a reliable way to preserve your balance across app reinstalls and even across multiple devices: **you need to write down a recovery phrase once a new wallet is created**.
     - title: "Recovery phrase"
       content: |-
-        It is a secret phrase comprising 12 random words which is provided to you by the app once a new Bitcoin wallet is created. The recovery phrase alone is sufficient to restore your Bitcoin wallet balance, so whoever knows it also fully controls your funds.
+        It is a secret phrase comprising 12 random words which is provided to you by the app once a new wallet is created. The recovery phrase alone is sufficient to restore your wallet balance, so whoever knows it also fully controls your funds.
 
         In a nutshell: **only the recovery phrase can restore your balance back in case you lose your phone or simply uninstall the app by accident**. Make sure to write it down and then keep it in a secure place.
     - title: "Attached wallets"
       content: |-
-        When a recovery phrase is generated, it is then securely stored on the device, and the default Bitcoin wallet is derived from it.
+        When a recovery phrase is generated, it is then securely stored on the device, and the default wallet is derived from it.
 
-        Users can then also attach additional Bitcoin wallets providing their own recovery phrases. Attached wallets work just like the default one: users can view balances, receive bitcoin, and send bitcoin from them, however attached wallet recovery phrase is never stored on the device.
+        Users can then also attach additional wallets providing their own recovery phrases. Attached wallets work just like the default one: users can view balances, receive coins, and send coins from them, however attached wallet recovery phrase is never stored on the device.
     - title: "RBF and CPFP"
       content: |-
         RBF and CPFP allow you to speed up pending transaction confirmation time by increasing its fee. CPFP can be applied to incoming transactions while RBF is used with outgoing transactions.
@@ -89,7 +89,7 @@ key_wallet:
         Additionally, RBF allows you to cancel a pending outgoing transaction and get its value back to the wallet, minus fees. Expand a pending transaction in Key Wallet to see which fee bumping options are available.
     - title: "Transaction batching"
       content: |-
-        It is possible to compose a single Bitcoin transaction which spends funds to many addresses at once. Doing so will greatly reduce chain fees. This feature is activated by sharing a list of `<address> <amount>;` pairs with the app. The list to be shared should look like this:
+        It is possible to compose a single transaction which spends funds to many addresses at once. Doing so will greatly reduce chain fees. This feature is activated by sharing a list of `<address> <amount>;` pairs with the app. The list to be shared should look like this:
       example: |-
         bc1q053q30qhmxwh256z7s6203dlpvzx0nwxsujs5l 11,000,000;
 
@@ -97,4 +97,4 @@ key_wallet:
 
         3HoEwvrqYRnrizFN7gTg5ouSbV3Tek9pab 0.00491500
       after_example: |-
-        Amounts can either be provided as Satoshis separated by comma or as Bitcoins with decimal point.
+        Amounts can either be provided as Satoshis separated by comma or as coins with decimal point.

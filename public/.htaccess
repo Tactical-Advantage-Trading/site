@@ -12,9 +12,18 @@ AddOutputFilterByType DEFLATE application/xhtml+xml
 AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
-AddOutputFilterByType DEFLATE image/jpg
-AddOutputFilterByType DEFLATE image/png
-AddOutputFilterByType DEFLATE image/gif
-AddOutputFilterByType DEFLATE image/jpeg
 AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+<FilesMatch "\.[0-9a-f]{96}\.(css|js)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+<FilesMatch "-v[0-9]+-(latin|latin-ext|vietnamese)\.woff2$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+AddType font/woff2 .woff2
 </IfModule>

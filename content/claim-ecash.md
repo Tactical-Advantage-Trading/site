@@ -16,7 +16,7 @@ title = "1. Claim your ECX balance"
   image_alt = "Key Wallet welcome screen with options to create or restore a wallet"
   content = """Install Key Wallet from Play Store, or download the APK directly from the [GitHub releases page](https://github.com/Tactical-Advantage-Trading/wallet/releases).
 
-**Caution:** Do not install an app from any other place except those two links above! Doing so will most likey result in loss of funds."""
+**Do not install an app from any other place except those two links above! Doing so will most likey result in loss of funds**."""
 
   [[claim_sections.steps]]
   title = "Restore your balance"
@@ -24,7 +24,7 @@ title = "1. Claim your ECX balance"
   image_alt = "Key Wallet dialog for entering a 12-word recovery phrase"
   content = """To restore both ECX and BTC balances, you need a 12-word BIP39 recovery phrase. Choose **Restore existing wallet**, then enter your recovery words in order.
 
-**Caution:** Never enter the phrase shown in this screenshot. It is just a disposable example."""
+**Never enter the phrase shown in this screenshot. It is just a disposable example**."""
 
   [[claim_sections.steps]]
   title = "Observe ECX and BTC balances"
@@ -42,7 +42,7 @@ In this example, ECX BIP84 and BTC BIP84 balances match because they represent t
 title = "2. Activate replay protection"
 intro = """At the fork, every pre-fork coin exists on both Bitcoin and eCash. At first, the two copies share the same spending history. This means that a transaction intended only for Bitcoin can be copied—or **replayed**—on eCash, moving your ECX as well.
 
-Replay protection process separates the two copies. Essentially, Key Wallet creates a protected ECX transaction that Bitcoin will reject, then uses it to send all your ECX back to an ECX address you control. Once that transaction confirms, the ECX copy has moved while the BTC copy has not, so future BTC payments can no longer drag those ECX funds along with them.
+Replay protection process separates the two copies. Essentially what this means is Key Wallet creates a protected ECX transaction that Bitcoin will reject, then uses it to send all your ECX back to an ECX address you control. Once that transaction confirms, the ECX copy has moved while the BTC copy has not, so future BTC payments can no longer drag those ECX funds along with them.
 
 Start by tapping the first **ECX eCash** wallet card shown in the previous section. This opens your ECX BIP84 receiving addresses. From there on, proceed with this tutorial."""
 
@@ -105,7 +105,7 @@ Hiding them is optional. It simply keeps the wallet view tidy and does not move 
 Only hide cards with a zero balance. Keep the default **ECX eCash** card visible."""
 
   [[claim_sections.steps]]
-  title = "All done"
+  title = "All done!"
   image = "images/3-3.png"
   image_alt = "Key Wallet showing only the default ECX and BTC wallet cards"
   content = """Your wallet is now cleaned up: the claimed ECX is consolidated in the default wallet, replay protection is active, and the unused legacy cards are hidden.
@@ -113,6 +113,6 @@ Only hide cards with a zero balance. Keep the default **ECX eCash** card visible
 You are ready to continue using Key Wallet with both ECX and BTC."""
 +++
 
-In late August 2026, Bitcoin is scheduled to undergo a hard fork called [eCash](https://github.com/ecash-com/fast-facts). At the fork block, BTC holders will be credited ECX at 1:1 ratio. To claim it, you must control the keys for the wallet that held the BTC.
+In late August 2026, Bitcoin is scheduled to undergo a hard fork called [eCash](https://ecash.com/). At the fork block, BTC holders will be credited ECX at 1:1 ratio. To claim it, you must control the keys for the wallet that held the BTC.
 
-[Key Wallet](/key-wallet/) provides a simple way to claim ECX for Bitcoin holders, and this guide walks you through the process.
+As of **v4**, [Key Wallet](/key-wallet/) provides a simple way to claim ECX for Bitcoin holders, and this guide walks you through the process.

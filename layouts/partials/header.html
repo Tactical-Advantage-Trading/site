@@ -1,4 +1,4 @@
-{{ $hero := .Site.Data.content.hero }} {{ with .Params.hero }} {{ $hero = merge
+{{ $hero := hugo.Data.content.hero }} {{ with .Params.hero }} {{ $hero = merge
 $hero . }} {{ end }}
 <section class="header" id="header">
   {{ if .Site.Params.enable_logo }}
@@ -11,23 +11,34 @@ $hero . }} {{ end }}
   </div>
   {{ end }} {{ with $hero }}
   <div class="hero-image">
-    {{ if ne .mobile_bg_image "" }}
+    {{ $mobileImage := .mobile_bg_image }}
+    {{ if and $mobileImage (ne $mobileImage .bg_image) }}
+    <picture>
+      <source
+        media="(max-width: 767.98px)"
+        srcset="{{ $mobileImage | relURL }}"
+      />
+      <img
+        data-hero-fade="true"
+        src="{{ .bg_image | relURL }}"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+        onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
+        onerror="this.dataset.heroLoaded='true';"
+      />
+    </picture>
+    {{ else }}
     <img
-      class="d-none d-md-block"
       data-hero-fade="true"
       src="{{ .bg_image | relURL }}"
-      alt="background"
+      alt=""
+      fetchpriority="high"
+      decoding="async"
       onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
       onerror="this.dataset.heroLoaded='true';"
-    /><img
-      class="d-md-none"
-      data-hero-fade="true"
-      src="{{ .mobile_bg_image | relURL }}"
-      alt="background"
-      onload="var img=this;requestAnimationFrame(function(){requestAnimationFrame(function(){img.dataset.heroLoaded='true';});});"
-      onerror="this.dataset.heroLoaded='true';"
-    />{{ else }} <img src="{{ .bg_image | relURL }}" alt="background" />{{ end
-    }}
+    />
+    {{ end }}
   </div>
   <div class="container">
     <div class="row justify-content-center content">
