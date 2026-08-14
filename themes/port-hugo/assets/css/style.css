@@ -914,8 +914,7 @@ a.about-link-value:focus {
   display: none;
 }
 
-.claim-mobile-copy-deck,
-.claim-step-mobile-meta {
+.claim-mobile-copy-deck {
   display: none;
 }
 
@@ -1211,22 +1210,6 @@ a.about-link-value:focus {
 
   .claim-step-card .claim-step-copy {
     display: none;
-  }
-
-  .claim-step-mobile-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 42px;
-    padding: 0 13px;
-    border-top: 1px solid #343434;
-    color: #aaa;
-    font-family: var(--font-display);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    line-height: 1;
-    text-transform: uppercase;
   }
 }
 

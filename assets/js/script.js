@@ -347,8 +347,9 @@
 
       function syncActiveStep() {
         var trackRect = $track[0].getBoundingClientRect();
-        var closestIndex = 0;
+        var closestIndex = -1;
         var largestVisibleWidth = -1;
+        var visibilityTieTolerance = 1;
 
         $steps.each(function (index) {
           var stepRect = this.getBoundingClientRect();
@@ -358,7 +359,13 @@
               Math.max(stepRect.left, trackRect.left)
           );
 
-          if (visibleWidth > largestVisibleWidth) {
+          if (
+            closestIndex === -1 ||
+            visibleWidth > largestVisibleWidth + visibilityTieTolerance ||
+            (Math.abs(visibleWidth - largestVisibleWidth) <=
+              visibilityTieTolerance &&
+              index === activeIndex)
+          ) {
             largestVisibleWidth = visibleWidth;
             closestIndex = index;
           }
@@ -388,17 +395,6 @@
         scheduleProgrammaticScrollEnd();
       }
 
-      function isLastStepFullyVisible() {
-        var trackRect = $track[0].getBoundingClientRect();
-        var lastStep = $steps.get($steps.length - 1);
-        var lastStepRect = lastStep.getBoundingClientRect();
-
-        return (
-          lastStepRect.left >= trackRect.left - 1 &&
-          lastStepRect.right <= trackRect.right + 1
-        );
-      }
-
       $buttons.on('click', function () {
         var index = $buttons.index(this);
 
@@ -406,6 +402,7 @@
       });
 
       $steps.on('click', function (event) {
+        var index = $steps.index(this);
         var selection = window.getSelection();
 
         if (
@@ -415,12 +412,7 @@
           return;
         }
 
-        if (isLastStepFullyVisible()) {
-          scrollToStep(0);
-          return;
-        }
-
-        scrollToStep(Math.min(activeIndex + 1, $steps.length - 1));
+        scrollToStep(index);
       });
 
       $track.on('scroll', function () {

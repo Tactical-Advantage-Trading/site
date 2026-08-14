@@ -42,7 +42,7 @@ In this example, ECX BIP84 and BTC BIP84 balances match because they represent t
 title = "2. Activate replay protection"
 intro = """At the fork, every pre-fork coin exists on both Bitcoin and eCash. At first, the two copies can share the same spending history. This means that a transaction intended only for Bitcoin can be copied—or **replayed**—on eCash, moving your ECX as well.
 
-Replay protection is a way to permanently sever the two copies. This is realized by making an ECX transaction that Bitcoin will reject, and then broadcast it to send all your ECX back to yourself. Once that transaction confirms, the ECX copy has moved while the BTC copy has not, so future BTC payments can no longer drag those ECX funds along with them.
+Replay protection is a way to permanently sever the two copies. This is realized by making an ECX transaction that Bitcoin will reject, and then broadcasting it to send all your ECX back to yourself. Once that transaction confirms, the ECX copy has moved while the BTC copy has not, so future BTC payments can no longer drag those ECX funds along with them.
 
 To do it, start by tapping the first **ECX eCash** wallet card shown in the previous section. This opens your ECX BIP84 receiving addresses. From there on, proceed with this tutorial."""
 
