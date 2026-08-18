@@ -1,0 +1,80 @@
+{{ if .Site.Data.content.ewallet.enable }} {{ with .Site.Data.content.ewallet
+}}
+<section class="about-me ewallet-section" id="ewallet">
+  <div class="container">
+    {{ $sections := .sections }}
+    <div class="row ewallet-layout justify-content-between">
+      <div
+        class="col-12 col-lg-8 col-xl-8 order-2 order-lg-1 about-me-text text-left"
+      >
+        <div class="text-holder ewallet-shell">
+          <h1>{{ .title | safeHTML }}</h1>
+          {{ with .intro }}
+          <div class="ewallet-intro">{{ . | markdownify | emojify }}</div>
+          {{ end }}
+          {{ with .links }}
+          <div class="about-links ewallet-links">
+            {{ range . }}
+            <div class="about-link">
+              <span class="about-link-label">{{ .label }}</span>
+              <a
+                class="about-link-value"
+                href="{{ .href }}"
+                {{ if hasPrefix .href "http" }}target="_blank" rel="noreferrer"{{ end }}
+              >
+                {{ .value }}
+              </a>
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ with .install_note }}
+          <section class="ewallet-note">
+            {{ with .title }}
+            <h2>{{ . }}</h2>
+            {{ end }}
+            <div class="ewallet-note-copy">
+              {{ .content | markdownify | emojify }}
+            </div>
+          </section>
+          {{ end }}
+          {{ with .sections }}
+          <div class="ewallet-manual">
+            {{ range . }}
+            <article class="ewallet-item" id="{{ .title | anchorize }}">
+              <h3>{{ .title }}</h3>
+              <div class="ewallet-item-copy">
+                {{ .content | markdownify | emojify }}
+              </div>
+              {{ with .example }}
+              <pre class="ewallet-example"><code>{{ . }}</code></pre>
+              {{ end }}
+              {{ with .after_example }}
+              <div class="ewallet-item-copy">
+                {{ . | markdownify | emojify }}
+              </div>
+              {{ end }}
+            </article>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ with $sections }}
+      <aside class="col-12 col-lg-3 col-xl-3 order-1 order-lg-2 ewallet-sidebar-wrap">
+        <nav class="ewallet-side-menu" aria-label="eWallet section links">
+          <span class="ewallet-side-menu-label">Contents</span>
+          <ul class="ewallet-side-menu-list">
+            {{ range . }}
+            <li>
+              <a href="#{{ .title | anchorize }}">{{ .title }}</a>
+            </li>
+            {{ end }}
+          </ul>
+        </nav>
+      </aside>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }} {{ end }}

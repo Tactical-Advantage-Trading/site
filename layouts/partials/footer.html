@@ -11,7 +11,7 @@
   <div class="credit">
     {{ $.Site.Params.copyright | markdownify }}
     <span id="current-year"></span>
-    {{ if or .IsHome (eq .Layout "key-wallet") (eq .Layout "claim-ecash") }}
+    {{ if or .IsHome (eq .Layout "ewallet") (eq .Layout "claim-ecash") }}
       <div class="footer-legal-links">
         <a href="{{ "privacy-policy.txt" | relURL }}">Privacy Policy</a>
         <a href="{{ "terms-of-use.txt" | relURL }}">Terms Of Use</a>

@@ -210,8 +210,8 @@
   initSectionMenuState();
 
   function initKeyWalletSideMenu() {
-    var $sidebarWrap = $('.key-wallet-sidebar-wrap');
-    var $sideMenu = $sidebarWrap.find('.key-wallet-side-menu');
+    var $sidebarWrap = $('.ewallet-sidebar-wrap');
+    var $sideMenu = $sidebarWrap.find('.ewallet-side-menu');
 
     if (!$sidebarWrap.length || !$sideMenu.length) {
       return;
@@ -223,7 +223,7 @@
       var topOffset = menuHeight + 19;
 
       if (!isDesktop) {
-        $sidebarWrap.removeClass('key-wallet-sidebar-floating');
+        $sidebarWrap.removeClass('ewallet-sidebar-floating');
         $sidebarWrap.css({
           minHeight: ''
         });
@@ -248,21 +248,21 @@
       });
 
       if (!shouldFloat) {
-        $sidebarWrap.removeClass('key-wallet-sidebar-floating');
+        $sidebarWrap.removeClass('ewallet-sidebar-floating');
         return;
       }
 
-      $sidebarWrap.addClass('key-wallet-sidebar-floating');
+      $sidebarWrap.addClass('ewallet-sidebar-floating');
       $sidebarWrap[0].style.setProperty(
-        '--key-wallet-side-menu-left',
+        '--ewallet-side-menu-left',
         sidebarLeft + 'px'
       );
       $sidebarWrap[0].style.setProperty(
-        '--key-wallet-side-menu-top',
+        '--ewallet-side-menu-top',
         topOffset + 'px'
       );
       $sidebarWrap[0].style.setProperty(
-        '--key-wallet-side-menu-width',
+        '--ewallet-side-menu-width',
         sidebarWidth + 'px'
       );
     }

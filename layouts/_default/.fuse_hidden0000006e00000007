@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{- partial "menu.html" . -}}
 {{- partial "header.html" . -}}
-<main class="key-wallet-content-page">
-  {{- partial "key-wallet-section.html" . -}}
+<main class="eWallet-content-page">
+  {{- partial "eWallet-section.html" . -}}
   {{- partial "footer.html" . -}}
 </main>
 {{ end }}

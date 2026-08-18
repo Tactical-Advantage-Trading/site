@@ -21,8 +21,8 @@ URL = "#vision"
 weight = 2
 
 [[menu.main]]
-name = "Key Wallet"
-URL = "/key-wallet"
+name = "eWallet"
+URL = "/ewallet"
 weight = 3
 
 [[menu.main]]

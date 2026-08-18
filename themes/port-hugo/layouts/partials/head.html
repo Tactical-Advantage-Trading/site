@@ -28,7 +28,7 @@
     crossorigin
   />
 
-  {{ if or .IsHome (eq .Layout "key-wallet") }}
+  {{ if or .IsHome (eq .Layout "ewallet") }}
     {{ $hero := .Site.Data.content.hero }}
     {{ with .Params.hero }}
       {{ $hero = merge $hero . }}

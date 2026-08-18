@@ -1,19 +1,19 @@
-{{ if .Site.Data.content.key_wallet.enable }} {{ with .Site.Data.content.key_wallet
+{{ if .Site.Data.content.ewallet.enable }} {{ with .Site.Data.content.ewallet
 }}
-<section class="about-me key-wallet-section" id="key-wallet">
+<section class="about-me eWallet-section" id="eWallet">
   <div class="container">
     {{ $sections := .sections }}
-    <div class="row key-wallet-layout justify-content-between">
+    <div class="row eWallet-layout justify-content-between">
       <div
         class="col-12 col-lg-8 col-xl-8 order-2 order-lg-1 about-me-text text-left"
       >
-        <div class="text-holder key-wallet-shell">
+        <div class="text-holder eWallet-shell">
           <h1>{{ .title | safeHTML }}</h1>
           {{ with .intro }}
-          <div class="key-wallet-intro">{{ . | markdownify | emojify }}</div>
+          <div class="eWallet-intro">{{ . | markdownify | emojify }}</div>
           {{ end }}
           {{ with .links }}
-          <div class="about-links key-wallet-links">
+          <div class="about-links eWallet-links">
             {{ range . }}
             <div class="about-link">
               <span class="about-link-label">{{ .label }}</span>
@@ -29,28 +29,28 @@
           </div>
           {{ end }}
           {{ with .install_note }}
-          <section class="key-wallet-note">
+          <section class="eWallet-note">
             {{ with .title }}
             <h2>{{ . }}</h2>
             {{ end }}
-            <div class="key-wallet-note-copy">
+            <div class="eWallet-note-copy">
               {{ .content | markdownify | emojify }}
             </div>
           </section>
           {{ end }}
           {{ with .sections }}
-          <div class="key-wallet-manual">
+          <div class="eWallet-manual">
             {{ range . }}
-            <article class="key-wallet-item" id="{{ .title | anchorize }}">
+            <article class="eWallet-item" id="{{ .title | anchorize }}">
               <h3>{{ .title }}</h3>
-              <div class="key-wallet-item-copy">
+              <div class="eWallet-item-copy">
                 {{ .content | markdownify | emojify }}
               </div>
               {{ with .example }}
-              <pre class="key-wallet-example"><code>{{ . }}</code></pre>
+              <pre class="eWallet-example"><code>{{ . }}</code></pre>
               {{ end }}
               {{ with .after_example }}
-              <div class="key-wallet-item-copy">
+              <div class="eWallet-item-copy">
                 {{ . | markdownify | emojify }}
               </div>
               {{ end }}
@@ -61,10 +61,10 @@
         </div>
       </div>
       {{ with $sections }}
-      <aside class="col-12 col-lg-3 col-xl-3 order-1 order-lg-2 key-wallet-sidebar-wrap">
-        <nav class="key-wallet-side-menu" aria-label="Key Wallet section links">
-          <span class="key-wallet-side-menu-label">Contents</span>
-          <ul class="key-wallet-side-menu-list">
+      <aside class="col-12 col-lg-3 col-xl-3 order-1 order-lg-2 eWallet-sidebar-wrap">
+        <nav class="eWallet-side-menu" aria-label="eWallet section links">
+          <span class="eWallet-side-menu-label">Contents</span>
+          <ul class="eWallet-side-menu-list">
             {{ range . }}
             <li>
               <a href="#{{ .title | anchorize }}">{{ .title }}</a>

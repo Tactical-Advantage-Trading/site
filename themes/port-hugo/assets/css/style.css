@@ -785,7 +785,7 @@ a.about-link-value:focus {
   font-weight: 600;
 }
 
-.key-wallet-shell {
+.ewallet-shell {
   max-width: 980px;
   min-width: 0;
 }
@@ -1220,48 +1220,48 @@ a.about-link-value:focus {
   }
 }
 
-.key-wallet-section {
+.ewallet-section {
   font-family: var(--font-body);
 }
 
-.key-wallet-layout {
+.ewallet-layout {
   align-items: flex-start;
 }
 
-.key-wallet-section h1,
-.key-wallet-note h2,
-.key-wallet-item h3 {
+.ewallet-section h1,
+.ewallet-note h2,
+.ewallet-item h3 {
   font-family: var(--font-display);
 }
 
-.key-wallet-section h1 {
+.ewallet-section h1 {
   font-size: clamp(2.9rem, 2.2rem + 1.5vw, 3.8rem);
   line-height: 1.05;
   letter-spacing: 0.01em;
   font-weight: 600;
 }
 
-.key-wallet-intro,
-.key-wallet-note-copy,
-.key-wallet-item-copy {
+.ewallet-intro,
+.ewallet-note-copy,
+.ewallet-item-copy {
   color: #fff;
   font-size: 18px;
   line-height: 1.8;
   font-weight: 400;
 }
 
-.key-wallet-intro {
+.ewallet-intro {
   margin-bottom: 20px;
 }
 
-.key-wallet-intro p:last-child,
-.key-wallet-note-copy p:last-child,
-.key-wallet-item-copy p:last-child {
+.ewallet-intro p:last-child,
+.ewallet-note-copy p:last-child,
+.ewallet-item-copy p:last-child {
   margin-bottom: 0;
 }
 
-.key-wallet-note,
-.key-wallet-item {
+.ewallet-note,
+.ewallet-item {
   padding-top: 1em;
   border: 0;
   background: transparent;
@@ -1269,12 +1269,12 @@ a.about-link-value:focus {
   min-width: 0;
 }
 
-.key-wallet-note {
+.ewallet-note {
   background: transparent;
 }
 
-.key-wallet-note h2,
-.key-wallet-item h3 {
+.ewallet-note h2,
+.ewallet-item h3 {
   margin: 0 0 12px;
   color: #fff;
   font-size: clamp(1.7rem, 1.45rem + 0.55vw, 2.05rem);
@@ -1283,27 +1283,27 @@ a.about-link-value:focus {
   letter-spacing: 0.01em;
 }
 
-.key-wallet-manual {
+.ewallet-manual {
   display: grid;
   gap: 16px;
   margin-top: 16px;
 }
 
-.key-wallet-section {
+.ewallet-section {
   padding-bottom: var(--footer-section-gap);
 }
 
-.key-wallet-links {
+.ewallet-links {
   max-width: 360px;
   margin-bottom: 18px;
 }
 
-.key-wallet-sidebar-wrap {
+.ewallet-sidebar-wrap {
   position: relative;
   margin-bottom: 24px;
 }
 
-.key-wallet-side-menu {
+.ewallet-side-menu {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1312,16 +1312,16 @@ a.about-link-value:focus {
   background: #000;
 }
 
-.key-wallet-sidebar-wrap.key-wallet-sidebar-floating .key-wallet-side-menu {
+.ewallet-sidebar-wrap.ewallet-sidebar-floating .ewallet-side-menu {
   position: fixed;
-  top: var(--key-wallet-side-menu-top, 74px);
-  left: var(--key-wallet-side-menu-left, auto);
-  width: var(--key-wallet-side-menu-width, 240px);
-  max-height: calc(100vh - var(--key-wallet-side-menu-top, 74px) - 18px);
+  top: var(--ewallet-side-menu-top, 74px);
+  left: var(--ewallet-side-menu-left, auto);
+  width: var(--ewallet-side-menu-width, 240px);
+  max-height: calc(100vh - var(--ewallet-side-menu-top, 74px) - 18px);
   overflow-y: auto;
 }
 
-.key-wallet-side-menu-label {
+.ewallet-side-menu-label {
   color: #fff;
   font-size: 13px;
   font-weight: 700;
@@ -1329,21 +1329,21 @@ a.about-link-value:focus {
   text-transform: uppercase;
 }
 
-.key-wallet-side-menu-list {
+.ewallet-side-menu-list {
   list-style: disc;
   margin: 0;
   padding-left: 20px;
 }
 
-.key-wallet-side-menu-list li + li {
+.ewallet-side-menu-list li + li {
   margin-top: 8px;
 }
 
-.key-wallet-side-menu-list li::marker {
+.ewallet-side-menu-list li::marker {
   color: #fff;
 }
 
-.key-wallet-side-menu-list a {
+.ewallet-side-menu-list a {
   display: inline-block;
   padding: 6px 0;
   color: #fff;
@@ -1353,22 +1353,22 @@ a.about-link-value:focus {
   line-height: 1.55;
 }
 
-.key-wallet-intro a,
-.key-wallet-note-copy a,
-.key-wallet-item-copy a {
+.ewallet-intro a,
+.ewallet-note-copy a,
+.ewallet-item-copy a {
   color: #fff;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.key-wallet-item-copy p code {
+.ewallet-item-copy p code {
   color: #fff;
   background: transparent;
   padding: 0;
   border-radius: 0;
 }
 
-.key-wallet-example {
+.ewallet-example {
   margin-top: 12px;
   padding: 16px 18px;
   border: 1px solid #3a3a3a;
@@ -1377,7 +1377,7 @@ a.about-link-value:focus {
   min-width: 0;
 }
 
-.key-wallet-example code {
+.ewallet-example code {
   display: block;
   padding: 0;
   color: #fff;
@@ -1955,24 +1955,24 @@ ul.experience-chart h4 {
 }
 
 @media (max-width: 991px) {
-  .key-wallet-content-page {
-    --key-wallet-mobile-gutter: clamp(18px, 5vw, 28px);
+  .ewallet-content-page {
+    --ewallet-mobile-gutter: clamp(18px, 5vw, 28px);
   }
-  .key-wallet-content-page .container {
+  .ewallet-content-page .container {
     width: 100%;
     max-width: 100%;
-    padding-left: var(--key-wallet-mobile-gutter);
-    padding-right: var(--key-wallet-mobile-gutter);
+    padding-left: var(--ewallet-mobile-gutter);
+    padding-right: var(--ewallet-mobile-gutter);
   }
-  .key-wallet-content-page .row {
+  .ewallet-content-page .row {
     margin-left: 0;
     margin-right: 0;
   }
-  .key-wallet-content-page .row > [class*='col-'] {
+  .ewallet-content-page .row > [class*='col-'] {
     padding-left: 0;
     padding-right: 0;
   }
-  .key-wallet-sidebar-wrap {
+  .ewallet-sidebar-wrap {
     display: none;
   }
 }

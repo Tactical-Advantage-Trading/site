@@ -53,7 +53,7 @@ vision:
       authors: "Marcos Lopez de Prado"
 
 ############################# Key Wallet ################################
-key_wallet:
+ewallet:
   enable: true
   title: "10+ years in the making"
   intro: |-
