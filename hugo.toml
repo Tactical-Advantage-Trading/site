@@ -11,24 +11,19 @@ minifyOutput = true
 link = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 
 [[menu.main]]
-name = "About"
-URL = "#about"
+name = "Tactical Advantage"
+pageRef = "/"
 weight = 1
 
 [[menu.main]]
-name = "Vision"
-URL = "#vision"
+name = "eWallet"
+pageRef = "/ewallet"
 weight = 2
 
 [[menu.main]]
-name = "eWallet"
-URL = "/ewallet"
-weight = 3
-
-[[menu.main]]
 name = "Claim eCash"
-URL = "/claim-ecash"
-weight = 4
+pageRef = "/claim-ecash"
+weight = 3
 
 [params]
 copyright = "Tactical Advantage"

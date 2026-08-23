@@ -2,39 +2,18 @@
   <nav>
     <div class="menu-container">
       <ul class="desktop-menu list-inline mb-0" id="desktop-menu">
-        {{ if .Params.menu_back_to_home }} {{ $page := . }}
-        <li class="menu-item hvr-underline-from-left">
-          <a href="/">&lsaquo; Tactical Advantage</a>
-        </li>
-        {{ with .Params.menu_section_target }}
-        <li class="menu-item hvr-underline-from-left">
-          <a href="{{ . }}"
-            >{{ if $page.Params.menu_section_back }}&lsaquo; {{ end }}{{
-            $page.Params.menu_section_title | default "About" }}</a
+        {{ $page := . }}
+        {{ range .Site.Menus.main }}
+        {{ $isCurrent := $page.IsMenuCurrent "main" . }}
+        <li
+          class="menu-item hvr-underline-from-left{{ if $isCurrent }} active{{ end }}"
+        >
+          <a
+            href="{{ .URL }}"
+            {{ if $isCurrent }}aria-current="page"{{ end }}
+            >{{ .Name }}</a
           >
         </li>
-        {{ end }}
-        {{ with .Params.menu_next_target }}
-        <li class="menu-item hvr-underline-from-left">
-          <a href="{{ . }}"
-            >{{ $page.Params.menu_next_title | default "Next" }} &rsaquo;</a
-          >
-        </li>
-        {{ end }}
-        {{ with .Params.menu_current_title }}
-        <li class="menu-item hvr-underline-from-left active">
-          <a href="{{ $page.RelPermalink }}" aria-current="page">{{ . }}</a>
-        </li>
-        {{ end }}
-        {{ else }} {{ $isHome := .IsHome }} {{ range .Site.Menus.main }} {{
-        $url := .URL }} {{ if and (not $isHome) (hasPrefix $url "#") }} {{ $url
-        = printf "/%s" $url }} {{ end }}
-        <li class="menu-item hvr-underline-from-left {{ .Weight }}">
-          <a href="{{ $url }}"
-            >{{ .Name }}{{ if hasPrefix .URL "/" }} &rsaquo;{{ end }}</a
-          >
-        </li>
-        {{ end }}
         {{ end }}
       </ul>
     </div>

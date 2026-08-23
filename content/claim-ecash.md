@@ -1,11 +1,6 @@
 +++
 title = "Claim eCash"
 layout = "claim-ecash"
-menu_back_to_home = true
-menu_section_title = "eWallet"
-menu_section_target = "/ewallet"
-menu_section_back = true
-menu_current_title = "Claim eCash"
 
 [[claim_sections]]
 title = "1. Claim your ECX balance"
@@ -113,6 +108,6 @@ Only hide cards with a zero balance. Keep the default **ECX eCash** card visible
 You are ready to continue using eWallet with both ECX and BTC."""
 +++
 
-In late August 2026, Bitcoin is scheduled to undergo a hard fork called [eCash](https://ecash.com/). At the fork block, BTC holders will be credited ECX at 1:1 ratio. To claim it, you must control the keys for the wallet that held the BTC.
+On October 31, 2026, Bitcoin is scheduled to undergo a hard fork called [eCash](https://ecash.com/). At the fork block, BTC holders will be credited ECX at 1:1 ratio. To claim it, you must control the keys for the wallet that held the BTC.
 
 As of **v4**, [eWallet](/ewallet/) provides a simple way to claim ECX for Bitcoin holders, and this guide walks you through the process.
