@@ -52,12 +52,12 @@ vision:
       source: "Advances in Financial Machine Learning"
       authors: "Marcos Lopez de Prado"
 
-############################# Key Wallet ################################
+############################# eWallet ################################
 ewallet:
   enable: true
   title: "10+ years in the making"
   intro: |-
-    Key Wallet is our open-source, non-custodial, autonomous eCash and Bitcoin wallet for Android, as well as an account control tool for our clients.
+    eWallet is our open-source, non-custodial, autonomous eCash and Bitcoin wallet for Android, as well as an account control tool for our clients.
     It is one of the oldest mobile wallets still available today. Previously known as Simple Bitcoin Wallet, it has been around since 2016 and is not going anywhere.
   links:
     - label: "Get the app"
@@ -86,7 +86,7 @@ ewallet:
       content: |-
         RBF and CPFP allow you to speed up pending transaction confirmation time by increasing its fee. CPFP can be applied to incoming transactions while RBF is used with outgoing transactions.
 
-        Additionally, RBF allows you to cancel a pending outgoing transaction and get its value back to the wallet, minus fees. Expand a pending transaction in Key Wallet to see which fee bumping options are available.
+        Additionally, RBF allows you to cancel a pending outgoing transaction and get its value back to the wallet, minus fees. Expand a pending transaction in eWallet to see which fee bumping options are available.
     - title: "Transaction batching"
       content: |-
         It is possible to compose a single transaction which spends funds to many addresses at once. Doing so will greatly reduce chain fees. This feature is activated by sharing a list of `<address> <amount>;` pairs with the app. The list to be shared should look like this:
